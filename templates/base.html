@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+    </header>
+    <main class="content">
+        {% block body %}
+
+        {% endblock %}
+    </main>
+</body>
+</html>
