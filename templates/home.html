@@ -1,5 +1,99 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <h1 class="title">page principale du portfolio</h1>
+    <style>
+
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .section-end {
+            margin: -4vw 0px -4vw 0px;
+            width: 100%;
+            height: 8vw;
+            transform: rotate(-4deg) scale(1.2, 1);
+        }
+
+        .about-end {
+            background-color: white;
+        }
+
+        #description {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        #description>div {
+            flex-direction: row;
+            z-index: 2;
+        }
+
+        .rounded {
+            border-radius: 50%;
+        }
+
+        .text-vertical {
+            vertical-align: middle;
+            align-items: center;
+            display: table-cell;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        div.centered {
+            margin: auto;
+            display: inline;
+            text-align: center;
+        }
+
+        a {
+            color: rgba(0, 0, 255, 1);
+            text-decoration: underline 0.1em rgba(255, 255, 255, 0);
+            transition: text-decoration-color 1s;
+        }
+
+        a:hover {
+            text-decoration-color: rgba(0, 0, 255, 1);
+        }
+
+        #description>div>img {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;        
+        }
+
+        #avatar {
+            display: block;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 1400px) {
+            #description {
+                width: 80%;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            #description {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+    <h1 class="centered title">Who Am I ?</h1>
+    <section id="description">
+        <div class="centered">
+            <span>
+                Hi! My name is Nicolas Facon and I develop games, websites and application on my free time.
+            I like learn with programming about IT and about the things I work with. It's a sort of challenge for me.<br/><br/>
+
+            In 2021, I entered in Lens University Institute of Technology, french university in IT to learn more about software and web development. I am current on the second year of my studies. I discovered a lot of technologies and languages and I also put my knowledge into practice in various <a href="#projects">projects</a>.
+            </span>
+        </div>
+        <div><img class="rounded" id="avatar" src="{{ url_for('static', filename='assets/images/avatar.png') }}"></div>
+    </section>
+        <div class="section-end about-end"></div>
+        <section style="height: 1000px; background-color: rgb(7, 7, 121);"></div>
 {% endblock %}
