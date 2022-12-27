@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>{{ title }}</title>
-</head>
-<body>
-    <header>
-        <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-    </header>
-    <main class="content">
-        {% block body %}
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <title>{{ title }}</title>
+                <style>
+                * {
+                    font-family: system-ui;
+                }
 
-        {% endblock %}
-    </main>
-</body>
+                body {
+                    margin: 0 auto
+                }
+
+                header {
+                    display: block;
+                    background-color: rgb(7, 7, 121);
+                    height: 75px;
+                    width: 100%;
+                }
+
+                .header-button {
+                    background-color: rgb(7, 7, 121);
+                    float: right;
+                    color: white;
+                    font-weight: 600;
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 75px;
+                    width: 200px;
+                    transition: 1s;
+                }  
+
+                .header-button:hover {
+                    background-color: rgb(7, 7, 75);
+                    transition: 1s;
+                }
+                
+                .profile {
+                    width: 60px;
+                    border-radius: 50%;
+                    margin-left: 10px;
+                    float: left;
+                    display: block;
+                    margin-block: 7.5px;
+                }
+
+                @media screen and (max-width: 900px) {
+                    .header-button {
+                        visibility: hidden;
+                    }
+                }
+            </style>
+    </head>
+    <body>
+        <header>
+            <a href="/"><img class="profile" src="{{ url_for('static', filename='assets/images/avatar.png') }}"></a>
+            <a href="/portfolio#about" class="header-button"><div class="header-button">a propos</div></a>
+            <a href="/portfolio#contact"><div class="header-button">contact</div></a>
+            <a href="/portfolio/CV"><div class="header-button">CV</div></a>
+            <a href="/portfolio#projets"><div class="header-button">projets</div></a>
+        </header>
+        <main class="content">
+            {% block body %}
+
+            {% endblock %}
+        </main>
+    </body>
 </html>
