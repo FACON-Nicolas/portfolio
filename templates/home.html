@@ -87,6 +87,34 @@
             font-size: 40px;
         }
 
+        .project:nth-child(2n) {
+            text-align: right;
+        }
+
+        .project:nth-child(2n+1) {
+            text-align: left;
+        }
+
+        #project-section {
+            background-color: rgb(7, 7, 121); 
+            color: white;
+        }
+
+        .projects {
+            width: 60%;
+            margin: auto;
+        }
+
+        .git {
+            width: 30px;
+            transition: 0.5s;
+        }
+
+        .git:hover {
+            filter: contrast(0%);
+            transition: 0.5s;
+        }
+
         @media screen and (max-width: 1400px) {
             #description {
                 width: 80%;
@@ -113,9 +141,64 @@
         <div><img class="rounded" id="avatar" src="{{ url_for('static', filename='assets/images/avatar.png') }}"></div>
     </section>
     <div class="section-end about-end top-margin-50"></div>
-    <section style="height: 1000px; background-color: rgb(7, 7, 121); color: white">
+    <section id="project-section">
         <div class="section-end project-start"></div>
         <h1 class="centered title transparent top-margin-100">Some of my projects</h1>
+        <div class="projects">
+            {% for project in projects %}
+                <div class="project">
+                    <style>
+                        .img {
+                            width: 50%;
+                            box-shadow: rgba(0, 0, 0, 1) 0px 30px 30px -12px;      
+                        }
+
+                        .project-title {
+                            color: white;
+                            text-decoration: none;
+                            transition: 1s;
+                        }
+
+                        .project-title:hover {
+                            color: rgb(200, 255, 200);
+                            transition: 1s;
+                        }
+
+                        .date {
+                            color: rgb(200, 255, 200);
+                        }
+
+                        .technologie {
+                            color: rgb(200, 255, 200);
+                            transition: 0.7s;
+                        }
+
+                        .technologie:hover {
+                            color: rgb(100, 255, 100);
+                            transition: 0.7s;
+                        }
+                    </style>
+                    <p class="date">{{project['creation_date'].split('-')[0]}} • {{project['location']}} Project</p>
+                    <a class="project-title" target="_blank" href="{{ project['github'] }}"><h1>{{ project["name"] }} </h1></a>
+                    <div>
+                        <a><img class="img" src="{{ project['media_url'] }}"></a>
+                    </div><br/>
+                    <span>
+                            {% for lib in libs %}
+                                {% if lib[0] == project['id'] %}
+                                    {% for i in lib[1] %}
+                                    <span class="technologie">
+                                        {{i}} &nbsp;
+                                    </span>
+                                    {% endfor %}
+                                {% endif %}
+                        {% endfor %}
+                    </span><br/><br/>
+                    <a href="{{ project['github'] }}" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>                
+                </div>
+
+                {% endfor %}
+        </div>
     </section>
     </div>
 {% endblock %}
