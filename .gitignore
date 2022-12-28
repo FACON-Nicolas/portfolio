@@ -285,3 +285,4 @@ favicon.ico
 */brick-breaker
 real_app*
 static/**/brick-breaker/
+*.db
