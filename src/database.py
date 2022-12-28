@@ -23,7 +23,8 @@ def create_database():
                 maintenance BOOLEAN NOT NULL DEFAULT FALSE,
                 development BOOLEAN NOT NULL DEFAULT FALSE,
                 url_github TEXT NOT NULL DEFAULT 'github.com/FACON-Nicolas',
-                media_url TEXT NOT NULL
+                media_url TEXT NOT NULL,
+                location VARCHAR(10) NOT NULL
             )
         """)
 
@@ -64,9 +65,9 @@ def create_database():
             )
         """)
     except OperationalError as e:
-        print("coucou", e)
+        print(e)
 
-def insert_project(name: str, description: str, date_creation: datetime, git: str, media: str, maintenance: bool=False, development: bool=False):
+def insert_project(name: str, description: str, date_creation: datetime, git: str, media: str, location: str, maintenance: bool=False, development: bool=False):
     try:
         cursor.execute("""
             INSERT INTO PROJECT (
@@ -76,11 +77,12 @@ def insert_project(name: str, description: str, date_creation: datetime, git: st
                 maintenance, 
                 development, 
                 url_github, 
-                media_url
-            ) VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (name, description, date_creation, maintenance, development, git, media))
-    except:
-        pass
+                media_url,
+                location
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """, (name, description, date_creation, maintenance, development, git, media, location))
+    except IntegrityError as e:
+        print(e)
 
 def insert_technologie(name, type):
     try:
@@ -135,6 +137,20 @@ def tags_by_project(id_project):
             WHERE id_project=""" + str(id_project))
     ]
 
+def projects(projects):
+    return [
+        {
+            'id': project[0],
+            'name': project[1],
+            'description': project[2],
+            'creation_date': project[3],
+            'maintenance': project[4],
+            'development': project[5],
+            'github': project[6],
+            'media_url': project[7]
+        } for project in projects
+    ]
+
 def get_technologies():
     return [i for i in cursor.execute("SELECT * FROM TECHNOLOGIES")]
 
@@ -148,8 +164,8 @@ def close():
 
 if ('__main__' == __name__):
     create_database()
-    insert_project('puissance 4', '', datetime.now(), '', '')
-    insert_project('tetris', '', datetime.now(), '', '')
+    insert_project('puissance 4', '', datetime.now(), '', '', 'School')
+    insert_project('tetris', '', datetime.now(), '', '', 'Personal')
     insert_technologie('python', 'language')
     insert_technologie('C++', 'language')
     insert_link(1, 1)
@@ -169,6 +185,13 @@ if ('__main__' == __name__):
 
     for i in tags_by_project(1):
         print(i)
+
+    print('---------')
+
+    for i in cursor.execute("SELECT * FROM PROJECT"):
+        print(i)
+
+    print('---------')
 
     close()
 
