@@ -11,11 +11,15 @@
             margin: -4vw 0px -4vw 0px;
             width: 100%;
             height: 8vw;
-            transform: rotate(-4deg) scale(1.2, 1);
+            transform: rotate(-4deg) scale(1.1, 1);
         }
 
         .about-end {
             background-color: white;
+        }
+
+        .project-start {
+            background-color: rgb(7, 7, 121);
         }
 
         #description {
@@ -34,12 +38,6 @@
             border-radius: 50%;
         }
 
-        .text-vertical {
-            vertical-align: middle;
-            align-items: center;
-            display: table-cell;
-        }
-
         .centered {
             text-align: center;
         }
@@ -48,6 +46,10 @@
             margin: auto;
             display: inline;
             text-align: center;
+        }
+
+        .transparent {
+            background-color: rgb(255, 255, 255, 0);
         }
 
         a {
@@ -69,6 +71,22 @@
             margin: auto;
         }
 
+        .top-margin-100 {
+            margin-top: 100px;
+        }
+
+        .top-margin-75 {
+            margin-top: 75px;
+        }
+
+        .top-margin-50 {
+            margin-top: 50px;
+        }
+
+        .title {
+            font-size: 40px;
+        }
+
         @media screen and (max-width: 1400px) {
             #description {
                 width: 80%;
@@ -82,7 +100,7 @@
         }
 
     </style>
-    <h1 class="centered title">Who Am I ?</h1>
+    <h1 class="centered title top-margin-100">Who Am I ?</h1>
     <section id="description">
         <div class="centered">
             <span>
@@ -94,6 +112,10 @@
         </div>
         <div><img class="rounded" id="avatar" src="{{ url_for('static', filename='assets/images/avatar.png') }}"></div>
     </section>
-        <div class="section-end about-end"></div>
-        <section style="height: 1000px; background-color: rgb(7, 7, 121);"></div>
+    <div class="section-end about-end top-margin-50"></div>
+    <section style="height: 1000px; background-color: rgb(7, 7, 121); color: white">
+        <div class="section-end project-start"></div>
+        <h1 class="centered title transparent top-margin-100">Some of my projects</h1>
+    </section>
+    </div>
 {% endblock %}
