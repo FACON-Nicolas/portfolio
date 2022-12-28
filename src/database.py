@@ -146,28 +146,29 @@ def close():
     cursor.close()
     connect.close()
 
-create_database()
-insert_project('puissance 4', '', datetime.now(), '', '')
-insert_project('tetris', '', datetime.now(), '', '')
-insert_technologie('python', 'language')
-insert_technologie('C++', 'language')
-insert_link(1, 1)
-insert_link(2, 2)
-insert_tag('game')
-insert_tag('web')
-insert_tags(1, 1)
-insert_tags(2, 2)
+if ('__main__' == __name__):
+    create_database()
+    insert_project('puissance 4', '', datetime.now(), '', '')
+    insert_project('tetris', '', datetime.now(), '', '')
+    insert_technologie('python', 'language')
+    insert_technologie('C++', 'language')
+    insert_link(1, 1)
+    insert_link(2, 2)
+    insert_tag('game')
+    insert_tag('web')
+    insert_tags(1, 1)
+    insert_tags(2, 2)
 
-for i in technologies_by_project(1):
-    print(i)
+    for i in technologies_by_project(1):
+        print(i)
 
-for i in technologies_by_project(2):
-    print(i)
+    for i in technologies_by_project(2):
+        print(i)
 
-print('---------')
+    print('---------')
 
-for i in tags_by_project(1):
-    print(i)
+    for i in tags_by_project(1):
+        print(i)
 
-close()
+    close()
 
