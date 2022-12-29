@@ -117,6 +117,72 @@
             transition: 0.5s;
         }
 
+        .img {
+            width: 100%;
+            -webkit-box-shadow: 0 0 20px #000;
+            box-shadow: 0 0 20px #000;   
+            border-radius: 14px;  
+        }
+
+        .proj-img {
+            width: 100%;
+        }
+
+        .proj-description {
+            position: relative;
+            z-index: 10;
+            margin-block: auto;
+            -webkit-box-shadow: 0 0 20px #000;
+            box-shadow: 0 0 20px #000;
+            padding: 40px;
+            border-radius: 15px;
+            height: min-content;
+            background-color: rgb(40, 40, 120); 
+            width: 100%;
+            margin-block: auto;
+        }
+
+        .left {
+            transform: translateX(-25%);
+        }
+
+        .right {
+            transform: translateX(25%);
+        }
+
+        .project-title {
+            color: white;
+            text-decoration: none;
+            transition: 1s;
+        }
+
+        .project-title:hover {
+            color: rgb(200, 255, 200);
+            transition: 1s;
+        }
+
+        .date {
+            color: rgb(200, 255, 200);
+        }
+
+        .technologie {
+            color: rgb(200, 255, 200);
+            transition: 0.7s;
+        }
+
+        .technologie:hover {
+            color: rgb(100, 255, 100);
+            transition: 0.7s;
+        }
+
+        .align:nth-child(2n+1) {
+            text-align: right;
+        }
+
+        .align:nth-child(2n) {
+            text-align: left;
+        }
+
         @media screen and (max-width: 1400px) {
             #description {
                 width: 80%;
@@ -147,66 +213,6 @@
         <div class="section-end project-start"></div>
         <h1 class="centered title transparent top-margin-100">Some of my projects</h1>
         <div class="projects">
-            <style>
-                .img {
-                    width: 100%;
-                    box-shadow: rgba(0, 0, 0, 0.7) 0px 30px 30px -12px;      
-                }
-
-                .proj-img {
-                    width: 50%;
-                }
-
-                .proj-description {
-                    overflow: visible;
-                    z-index: 10;
-                    margin-block: auto;
-                    -webkit-box-shadow: 0 0 20px #000;
-                    box-shadow: 0 0 20px #000;
-                    padding: 40px;
-                    border-radius: 15px;
-                    height: min-content;
-                    background-color: rgb(7, 7, 121); 
-                    width: 70%;
-                    margin-block: auto;
-                    display: inline-block;
-                }
-
-                .project-title {
-                    color: white;
-                    text-decoration: none;
-                    transition: 1s;
-                }
-
-                .project-title:hover {
-                    color: rgb(200, 255, 200);
-                    transition: 1s;
-                }
-
-                .date {
-                    color: rgb(200, 255, 200);
-                }
-
-                .technologie {
-                    color: rgb(200, 255, 200);
-                    transition: 0.7s;
-                }
-
-                .technologie:hover {
-                    color: rgb(100, 255, 100);
-                    transition: 0.7s;
-                }
-
-                .align:nth-child(2n+1) {
-                    text-align: right;
-                }
-
-                .align:nth-child(2n) {
-                    text-align: left;
-                }
-
-                
-            </style>
             {% for project in projects %}
             <div class="align">
                 <p class="date">{{project['creation_date'].split('-')[0]}} • {{project['location']}} Project</p>
@@ -216,7 +222,7 @@
                     <div class="proj-img">
                         <a><img class="img" src="{{ project['media_url'] }}"></a>
                     </div>
-                    <div class="proj-description">
+                    <div class="proj-description {% if projects.index(project) % 2 != 0 %} left {% else %} right {% endif%}">
                         {{ project['description'] }}
                     </div>                
                 </div><br/>
@@ -233,8 +239,8 @@
                     {% endfor %}
                     </span><br/><br/>
                     <a href="{{ project['github'] }}" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
-                    {% endfor %}
                 </div>
+                {% endfor %}
         </div>
     </section>
     </div>
