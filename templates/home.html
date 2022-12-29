@@ -99,6 +99,7 @@
 
         #project-section {
             background-color: rgb(7, 7, 121); 
+            width: 101%;
             color: white;
         }
 
@@ -150,6 +151,10 @@
             transform: translateX(25%);
         }
 
+        .none {
+            text-decoration: none;
+        }
+
         .project-title {
             color: white;
             text-decoration: none;
@@ -183,15 +188,67 @@
             text-align: left;
         }
 
+        .card-parent {
+            height: min-content; 
+            background-size: cover; 
+            border-radius: 13px;
+            margin-bottom: 10px;
+            -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            transition: 0.4s;
+        }
+
+        .card-parent:hover {
+            -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+            transition: 0.4s;
+        }
+
+        .card-child {
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            border-radius: 13px;
+        }
+
+        .card-text {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width: 1600px) {
+            .projects {
+                width: 75%;
+            }
+        }
+
         @media screen and (max-width: 1400px) {
             #description {
                 width: 80%;
+            }
+
+            .projects {
+                width: 90%;
             }
         }
 
         @media screen and (max-width: 800px) {
             #description {
                 flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .not-mobile {
+                display: none;
+                overflow: hidden;
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            .mobile {
+                display: none;
+                overflow: hidden;
             }
         }
 
@@ -214,19 +271,21 @@
         <h1 class="centered title transparent top-margin-100">Some of my projects</h1>
         <div class="projects">
             {% for project in projects %}
-            <div class="align">
+
+            <!-- on va attaquer la responsive, ici c'est le mode PC -->
+            <div class="align not-mobile">
                 <p class="date">{{project['creation_date'].split('-')[0]}} • {{project['location']}} Project</p>
                 <a class="project-title" target="_blank" href="{{ project['github'] }}"><h1>{{ project["name"] }} </h1></a>
-            </div><br/>
-                <div class="project">
-                    <div class="proj-img">
-                        <a><img class="img" src="{{ project['media_url'] }}"></a>
+            </div><br class="not-mobile"/>
+                <div class="project not-mobile">
+                    <div class="proj-img not-mobile">
+                        <a><img class="img not-mobile" src="{{ project['media_url'] }}"></a>
                     </div>
-                    <div class="proj-description {% if projects.index(project) % 2 != 0 %} left {% else %} right {% endif%}">
+                    <div class="proj-description not-mobile {% if projects.index(project) % 2 != 0 %} left {% else %} right {% endif%}">
                         {{ project['description'] }}
                     </div>                
-                </div><br/>
-                <div class="align">
+                </div><br class="not-mobile"/>
+                <div class="align not-mobile">
                     <span>
                         {% for lib in libs %}
                             {% if lib[0] == project['id'] %}
@@ -237,10 +296,37 @@
                                 {% endfor %}
                             {% endif %}
                     {% endfor %}
-                    </span><br/><br/>
+                    </span><br class="not-mobile"/><br class="not-mobile"/>
                     <a href="{{ project['github'] }}" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
                 </div>
-                {% endfor %}
+
+            <!-- ici la partie mobile -->
+            {% endfor %}
+
+            {% for project in projects %}
+                    <div style="background-image: url({{project['media_url']}})" class="card-parent mobile">
+                        <div class="mobile card-child" >
+                            <div style="margin-inline: 1em">
+                                <p style="padding-top: 50px" class="date">{{project['creation_date'].split('-')[0]}} • {{project['location']}} Project</p>
+                                <a class="project-title" target="_blank" href="{{ project['github'] }}"><h1>{{ project["name"] }} </h1></a>                            
+                                <p class="card-text">{{project['description']}}</p>
+                                <span>
+                                    {% for lib in libs %}
+                                        {% if lib[0] == project['id'] %}
+                                            {% for i in lib[1] %}
+                                            <span class="technologie">
+                                                {{i}} &nbsp;
+                                            </span>
+                                            {% endfor %}
+                                        {% endif %}
+                                {% endfor %}
+                                </span><br class="mobile"/><br class="mobile"/>
+                                <a href="{{ project['github'] }}" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                                <br class="mobile"/><br class="mobile"/>
+                            </div>
+                        </div> 
+                    </div>
+            {% endfor %}
         </div>
     </section>
     </div>
