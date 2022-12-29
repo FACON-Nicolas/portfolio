@@ -88,11 +88,13 @@
         }
 
         .project:nth-child(2n) {
-            text-align: right;
+            display: flex;
+            flex-direction: row;
         }
 
         .project:nth-child(2n+1) {
-            text-align: left;
+            display: flex;
+            flex-direction: row-reverse;
         }
 
         #project-section {
@@ -145,59 +147,94 @@
         <div class="section-end project-start"></div>
         <h1 class="centered title transparent top-margin-100">Some of my projects</h1>
         <div class="projects">
+            <style>
+                .img {
+                    width: 100%;
+                    box-shadow: rgba(0, 0, 0, 0.7) 0px 30px 30px -12px;      
+                }
+
+                .proj-img {
+                    width: 50%;
+                }
+
+                .proj-description {
+                    overflow: visible;
+                    z-index: 10;
+                    margin-block: auto;
+                    -webkit-box-shadow: 0 0 20px #000;
+                    box-shadow: 0 0 20px #000;
+                    padding: 40px;
+                    border-radius: 15px;
+                    height: min-content;
+                    background-color: rgb(7, 7, 121); 
+                    width: 70%;
+                    margin-block: auto;
+                    display: inline-block;
+                }
+
+                .project-title {
+                    color: white;
+                    text-decoration: none;
+                    transition: 1s;
+                }
+
+                .project-title:hover {
+                    color: rgb(200, 255, 200);
+                    transition: 1s;
+                }
+
+                .date {
+                    color: rgb(200, 255, 200);
+                }
+
+                .technologie {
+                    color: rgb(200, 255, 200);
+                    transition: 0.7s;
+                }
+
+                .technologie:hover {
+                    color: rgb(100, 255, 100);
+                    transition: 0.7s;
+                }
+
+                .align:nth-child(2n+1) {
+                    text-align: right;
+                }
+
+                .align:nth-child(2n) {
+                    text-align: left;
+                }
+
+                
+            </style>
             {% for project in projects %}
+            <div class="align">
+                <p class="date">{{project['creation_date'].split('-')[0]}} • {{project['location']}} Project</p>
+                <a class="project-title" target="_blank" href="{{ project['github'] }}"><h1>{{ project["name"] }} </h1></a>
+            </div><br/>
                 <div class="project">
-                    <style>
-                        .img {
-                            width: 50%;
-                            box-shadow: rgba(0, 0, 0, 1) 0px 30px 30px -12px;      
-                        }
-
-                        .project-title {
-                            color: white;
-                            text-decoration: none;
-                            transition: 1s;
-                        }
-
-                        .project-title:hover {
-                            color: rgb(200, 255, 200);
-                            transition: 1s;
-                        }
-
-                        .date {
-                            color: rgb(200, 255, 200);
-                        }
-
-                        .technologie {
-                            color: rgb(200, 255, 200);
-                            transition: 0.7s;
-                        }
-
-                        .technologie:hover {
-                            color: rgb(100, 255, 100);
-                            transition: 0.7s;
-                        }
-                    </style>
-                    <p class="date">{{project['creation_date'].split('-')[0]}} • {{project['location']}} Project</p>
-                    <a class="project-title" target="_blank" href="{{ project['github'] }}"><h1>{{ project["name"] }} </h1></a>
-                    <div>
+                    <div class="proj-img">
                         <a><img class="img" src="{{ project['media_url'] }}"></a>
-                    </div><br/>
+                    </div>
+                    <div class="proj-description">
+                        {{ project['description'] }}
+                    </div>                
+                </div><br/>
+                <div class="align">
                     <span>
-                            {% for lib in libs %}
-                                {% if lib[0] == project['id'] %}
-                                    {% for i in lib[1] %}
-                                    <span class="technologie">
-                                        {{i}} &nbsp;
-                                    </span>
-                                    {% endfor %}
-                                {% endif %}
-                        {% endfor %}
+                        {% for lib in libs %}
+                            {% if lib[0] == project['id'] %}
+                                {% for i in lib[1] %}
+                                <span class="technologie">
+                                    {{i}} &nbsp;
+                                </span>
+                                {% endfor %}
+                            {% endif %}
+                    {% endfor %}
                     </span><br/><br/>
-                    <a href="{{ project['github'] }}" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>                
+                    <a href="{{ project['github'] }}" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                    {% endfor %}
                 </div>
-
-                {% endfor %}
         </div>
     </section>
     </div>
