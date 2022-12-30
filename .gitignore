@@ -286,3 +286,4 @@ favicon.ico
 real_app*
 static/**/brick-breaker/
 *.db
+*/database_script.py
