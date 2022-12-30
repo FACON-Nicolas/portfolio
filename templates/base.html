@@ -47,6 +47,10 @@
                     margin-block: 12.5px;
                 }
 
+                .rounded {
+                    border-radius: 50%;
+                }
+
                 @media screen and (max-width: 900px) {
                     .header-button {
                         visibility: hidden !important;
@@ -65,6 +69,8 @@
                     border-radius: 0.35em;
                 }
             </style>
+            <link rel="icon" class="rounded" type="image/ico" href="{{ url_for('static', filename='assets/images/avatar.png') }}">
+
     </head>
     <body>
         <header>
