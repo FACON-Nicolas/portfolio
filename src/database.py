@@ -170,5 +170,3 @@ def close():
     connect.commit()
     cursor.close()
     connect.close()
-
-
