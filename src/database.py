@@ -14,8 +14,7 @@ cursor = connect.cursor()
 
 def create_database():
     try:
-        cursor.execute("""
-            CREATE TABLE PROJECT (
+        cursor.execute(""" CREATE TABLE PROJECT (
                 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                 name VARCHAR(50),
                 description TEXT NOT NULL,
@@ -28,17 +27,17 @@ def create_database():
             )
         """)
 
-        cursor.execute("""
-            CREATE TABLE TECHNOLOGIES (
+        cursor.execute(""" CREATE TABLE TECHNOLOGIES (
                 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
                 type VARCHAR(30) NOT NULL,
+                media_url TEXT NOT NULL,
+                learn_more TEXT NOT NULL,
                 UNIQUE (name, type)
             )
         """)
 
-        cursor.execute("""
-            CREATE TABLE LINK (
+        cursor.execute(""" CREATE TABLE LINK (
                 id_project INT NOT NULL,
                 id_tech INT NOT NULL,
                 FOREIGN KEY (id_project) REFERENCES PROJECT (id),
@@ -47,16 +46,27 @@ def create_database():
             )
         """)
 
+        cursor.execute(""" CREATE TABLE SKILL (
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+            name VARCHAR(30) NOT NULL
+        )
+        """)
 
-        cursor.execute("""
-            CREATE TABLE TAG (
+        cursor.execute(""" CREATE TABLE LINK_SKILL(
+            id_skill INTEGER NOT NULL,
+            id_tech INTEGER NOT NULL,
+            PRIMARY KEY (id_skill, id_tech)
+        )
+        """)
+
+
+        cursor.execute(""" CREATE TABLE TAG (
                 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                 name VARCHAR(30)
             )
         """)
 
-        cursor.execute("""
-            CREATE TABLE TAGS (
+        cursor.execute(""" CREATE TABLE TAGS (
                 id_tag INT NOT NULL,
                 id_project INT NOT NULL,
                 FOREIGN KEY (id_tag) REFERENCES TAG (id),
@@ -69,8 +79,7 @@ def create_database():
 
 def insert_project(name: str, description: str, date_creation: datetime, git: str, media: str, location: str, maintenance: bool=False, development: bool=False):
     try:
-        cursor.execute("""
-            INSERT INTO PROJECT (
+        cursor.execute(""" INSERT INTO PROJECT (
                 name, 
                 description, 
                 date_creation, 
@@ -84,16 +93,17 @@ def insert_project(name: str, description: str, date_creation: datetime, git: st
     except IntegrityError as e:
         print(e)
 
-def insert_technologie(name, type):
+def insert_technologie(name, type, media_url, doc_url):
     try:
-        cursor.execute("""
-            INSERT INTO TECHNOLOGIES (
+        cursor.execute(""" INSERT INTO TECHNOLOGIES (
                 name,
-                type
+                type, 
+                media_url,
+                learn_more
             ) VALUES (
-                ?, ?
+                ?, ?, ?, ?
             )
-        """, (name, type,))
+        """, (name, type, media_url, doc_url, ))
     except IntegrityError as e:
         print(e)
 
@@ -115,6 +125,26 @@ def insert_tags(id_project, id_tag):
     except:
         pass
 
+def insert_skill(name: str):
+    try:
+        cursor.execute('INSERT INTO SKILL (name) VALUES (?)', (name, ))
+    except:
+        pass
+
+def techs_by_skills(id_skill):
+    return [
+        i for i in cursor.execute("""SELECT TECHNOLOGIES.*
+            FROM TECHNOLOGIES JOIN LINK_SKILL
+            ON TECHNOLOGIES.id=LINK_SKILL.id_tech
+            WHERE LINK_SKILL.id_skill = """ + str(id_skill))
+    ]
+
+def insert_link_skill(id_skill, id_tech):
+    try:
+        cursor.execute("INSERT INTO LINK_SKILL VALUES (?, ?)", (id_skill, id_tech,))
+    except:
+        pass
+
 def get_projects():
     return [i for i in cursor.execute("SELECT * FROM PROJECT ORDER BY date_creation DESC")]
 
@@ -128,8 +158,7 @@ def get_tech_by_projects(projects):
 
 def technologies_by_project(id_project: int):
     return [
-        i for i in cursor.execute("""
-            SELECT TECHNOLOGIES.*
+        i for i in cursor.execute(""" SELECT TECHNOLOGIES.*
             FROM TECHNOLOGIES JOIN LINK
             ON TECHNOLOGIES.id=LINK.id_tech
             WHERE id_project = """ + str(id_project))
@@ -138,8 +167,7 @@ def technologies_by_project(id_project: int):
 def tags_by_project(id_project):
     return [
         i for i in cursor.execute(
-            """
-            SELECT TAG.*
+            """ SELECT TAG.*
             FROM TAG JOIN TAGS
             ON TAG.id=TAGS.id_tag
             WHERE id_project=""" + str(id_project))
@@ -160,6 +188,32 @@ def projects(projects):
         } for project in projects
     ]
 
+def tech_by_skill(id_skill):
+    return [
+        {
+            'id': tech[0],
+            'name': tech[1],
+            'type': tech[2],
+            'media': tech[3],
+            'doc': tech[4],
+            'id_skill': id_skill
+        } for tech in techs_by_skills(id_skill)
+    ]
+
+def skills():
+    return [
+        {
+            'id': skill[0],
+            'name': skill[1]
+        } for skill in cursor.execute("SELECT * FROM SKILL")
+    ]
+
+def techs(skills):
+    return [
+        tech_by_skill(skill['id'])
+        for skill in skills
+    ]
+
 def get_technologies():
     return [i for i in cursor.execute("SELECT * FROM TECHNOLOGIES")]
 
@@ -170,5 +224,3 @@ def close():
     connect.commit()
     cursor.close()
     connect.close()
-
-
