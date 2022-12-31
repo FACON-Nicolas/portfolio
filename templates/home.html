@@ -40,6 +40,7 @@
 
         .rounded {
             border-radius: 50%;
+            transition: 0.4s;
         }
 
         .centered {
@@ -220,6 +221,53 @@
             line-height: 1.5;
         }
 
+        .skill-section {
+            width: 80%;
+            margin: auto;
+        }
+
+        .skill-img {
+            border-radius: 8px;
+            display: block;
+            margin: auto 10px 10px 10px;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-card {
+            border-radius: 10px;
+            -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            width: calc(33% - 10px);
+            height: max(192px, auto, 100%);
+        }
+
+        .skill-card-title {
+            margin-block: 30px;
+            text-align: center;
+            color: white;
+            background-color: rgb(7, 7, 121);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            height: 60px;
+            line-height: 60px;
+            vertical-align: middle;
+            margin-top: 0;
+        } 
+
+        .skills-img {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-block: auto;
+        }
+
         @media screen and (max-width: 1600px) {
             .projects {
                 width: 75%;
@@ -249,12 +297,20 @@
             }
         }
 
-        @media screen and (min-width: 900px) {
+        @media screen and (min-width: 901px) {
             .mobile {
                 display: none;
                 overflow: hidden;
             }
         }
+
+        @media screen and (max-width: 900px) {
+            .skill-card {
+                width: 100%;
+                flex-direction: column;
+            }
+        }
+
 
     </style>
     <h1 class="centered title top-margin-100">Who Am I ?</h1>
@@ -291,15 +347,13 @@
                 </div><br class="not-mobile"/>
                 <div class="align not-mobile">
                     <span>
-                        {% for lib in libs %}
-                            {% if lib[0] == project['id'] %}
-                                {% for i in lib[1] %}
+                        {% for lib in libs if lib[0] == project['id'] %}
+                            {% for i in lib[1] %}
                                 <span class="technologie">
                                     {{i}} &nbsp;
                                 </span>
-                                {% endfor %}
-                            {% endif %}
-                    {% endfor %}
+                            {% endfor %}
+                        {% endfor %}
                     </span><br class="not-mobile"/><br class="not-mobile"/>
                     <a href="{{ project['github'] }}" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
                 </div>
@@ -315,15 +369,13 @@
                                 <a class="project-title" target="_blank" href="{{ project['github'] }}"><h1>{{ project["name"] }} </h1></a>                            
                                 <p class="card-text">{{project['description']}}</p>
                                 <span>
-                                    {% for lib in libs %}
-                                        {% if lib[0] == project['id'] %}
-                                            {% for i in lib[1] %}
+                                    {% for lib in libs if lib[0] == project['id'] %}
+                                        {% for i in lib[1] %}
                                             <span class="technologie">
                                                 {{i}} &nbsp;
                                             </span>
-                                            {% endfor %}
-                                        {% endif %}
-                                {% endfor %}
+                                        {% endfor %}
+                                    {% endfor %}
                                 </span><br class="mobile"/><br class="mobile"/>
                                 <a href="{{ project['github'] }}" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
                                 <br class="mobile"/><br class="mobile"/>
@@ -335,5 +387,23 @@
         <div class="project-end section-end top-margin-50"></div>
     </section>
     <div class="section-end about-end"></div>
+    <section class="skill-section">
+        <h1 class="centered title top-margin-100">My Skills</h1>
+        <div class="skills">
+            {% for skill in skills %}
+            <div class="skill-card">
+                <h2 class="skill-card-title">{{skill['name']}}</h2>
+                {% for tech in techs %}
+                    <div class="skills-img">
+                        {% for i in tech if i['id_skill'] == skill['id'] %}
+                            <a href="{{i['doc']}}" target="_blank"><img class="skill-img" src="{{i['media']}}" height="64"></a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+    <div class="section-end about-end top-margin-75"></div>
     </div>
 {% endblock %}
