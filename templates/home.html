@@ -296,6 +296,18 @@
             margin-block: auto;
         }
 
+        .cv {
+            width: min(717px, 90%);
+            display: block;
+            margin: auto;
+            -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .min-size {
+            width: min-content;
+        }
+
         .icon {
             width: 64px;
         }
@@ -308,9 +320,30 @@
             margin: auto;
         }
 
+        .block-margin-10 {
+            margin-block: 10px;
+        }
+
         #contact-section {
             background-color: rgb(7, 7, 121);
             color: white;
+        }
+
+        .download {
+            font-weight: 600;
+            border-radius: 24px;
+            width: 128px;
+            height: 48px;
+            border: 3px rgb(7, 7, 121) solid;
+            background-color: rgb(7, 7, 121);
+            color: white;
+            transition: 0.4s;
+        }
+
+        .download:hover {
+            background-color: white;
+            color: rgb(7, 7, 121);
+            transition: 0.4s;
         }
 
         @media screen and (max-width: 1600px) {
@@ -462,10 +495,13 @@
         <div class="section-end project-start top-margin-75"></div>
     </section>
     <div class="section-end about-end"></div>
-    <section>
+    <section id="cv-section">
         <h1 class="centered title top-margin-100">CV</h1>
         <div class="cv-fr-es">
-            
+            <img class="cv" src="{{ url_for('static', filename='assets/images/CV_FR.png') }}">
+            <div class="div-centered min-size block-margin-10">
+                <a class="none" href="{{ url_for('static', filename='assets/pdf/CV_FR.pdf') }}" download="CV_FACON_Nicolas_FR.pdf"><button class="download">download</button></a>
+            </div>
         </div>
     </section>
     </div>
