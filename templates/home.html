@@ -175,6 +175,15 @@
             color: rgb(200, 255, 200);
         }
 
+        .contact {
+            width: min-content;
+            margin-inline: auto;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
         .technologie {
             color: rgb(200, 255, 200);
             transition: 0.7s;
@@ -232,6 +241,25 @@
             margin: auto 10px 10px 10px;
         }
 
+        .button {
+            display: inline;
+            height: 64px;
+            background-color: transparent;
+            border: 3px solid white;
+            color: white;
+            width: 128px;
+            font-weight: 600;
+            font-size: 20px;
+            border-radius: 32px;
+            transition: 0.4s;
+        }
+
+        Button:hover {
+            color: rgb(7, 7, 121);
+            background-color: white;
+            transition: 0.4s;
+        }
+
         .skills {
             display: flex;
             flex-direction: row;
@@ -266,6 +294,56 @@
             gap: 20px;
             flex-wrap: wrap;
             margin-block: auto;
+        }
+
+        .cv {
+            width: min(717px, 90%);
+            display: block;
+            margin: auto;
+            -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .min-size {
+            width: min-content;
+        }
+
+        .icon {
+            width: 64px;
+        }
+
+        .invert {
+            filter: invert(100%)
+        }
+
+        .div-centered {
+            margin: auto;
+        }
+
+        .block-margin-10 {
+            margin-block: 10px;
+        }
+
+        #contact-section {
+            background-color: rgb(7, 7, 121);
+            color: white;
+        }
+
+        .download {
+            font-weight: 600;
+            border-radius: 24px;
+            width: 128px;
+            height: 48px;
+            border: 3px rgb(7, 7, 121) solid;
+            background-color: rgb(7, 7, 121);
+            color: white;
+            transition: 0.4s;
+        }
+
+        .download:hover {
+            background-color: white;
+            color: rgb(7, 7, 121);
+            transition: 0.4s;
         }
 
         @media screen and (max-width: 1600px) {
@@ -317,7 +395,7 @@
     <section id="description">
         <div class="centered">
             <span>
-                Hi! My name is Nicolas Facon and I develop games, websites and application on my free time.
+                Hi! My name is Nicolas Facon and I develop games, websites and applications on my free time.
             I like learn with programming about IT and about the things I work with. It's a sort of challenge for me.<br/><br/>
 
             In 2021, I entered in Lens University Institute of Technology, french university in IT, to learn more about software and web development. I am currently on the second year of my studies. I discovered a lot of technologies and languages and I also put my knowledge into practice in various <a href="#projects">projects</a>.
@@ -405,5 +483,26 @@
         </div>
     </section>
     <div class="section-end about-end top-margin-75"></div>
+    <section id="contact-section">
+        <div class="section-end project-start"></div>
+        <h1 class="top-margin-100 centered title">Contact</h1>
+
+        <div class="margin-top-100 contact div-centered">
+            <a target="_blank" class="none" href="https://www.linkedin.com/in/nicolas-facon/"><button target="_blank" class="button">LinkedIn</button></a>
+            <a target="_blank" class="none" href="mailto:faconicolas@gmail.com"><button target="_blank" class="button">E-mail</button></a>
+            <a target="_blank" class="none" href="https://www.github.com/FACON-Nicolas"><button target="_blank" class="button">github</button></a>
+        </div>
+        <div class="section-end project-start top-margin-75"></div>
+    </section>
+    <div class="section-end about-end"></div>
+    <section id="cv-section">
+        <h1 class="centered title top-margin-100">CV</h1>
+        <div class="cv-fr-es">
+            <img class="cv" src="{{ url_for('static', filename='assets/images/CV_FR.png') }}">
+            <div class="div-centered min-size block-margin-10">
+                <a class="none" href="{{ url_for('static', filename='assets/pdf/CV_FR.pdf') }}" download="CV_FACON_Nicolas_FR.pdf"><button class="download">download</button></a>
+            </div>
+        </div>
+    </section>
     </div>
 {% endblock %}
