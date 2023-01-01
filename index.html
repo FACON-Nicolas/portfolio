@@ -53,7 +53,7 @@
                     border-radius: 50%;
                 }
 
-                @media only screen and (min-width: 480px) {
+                @media  (max-device-width: 1440px), (max-width: 900px) {
                     .header-button {
                         visibility: hidden !important;
                         display: none;
@@ -71,6 +71,7 @@
                     border-radius: 0.25em;
                 }
             </style>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="icon" class="rounded" type="image/ico" href="static/assets/images/avatar.png">
     </head>
     <body>
@@ -86,7 +87,7 @@
     <style>
 
         body {
-            max-width: 100%;
+            width: 100vw;
             overflow-x: hidden;
         }
         .section-end {
@@ -467,13 +468,13 @@
             transition: 0.4s;
         }
 
-        @media only screen and (max-width: 1600px) {
+        @media  (max-device-width: 1440px), (max-width: 1600px) {
             .projects {
                 width: 75%;
             }
         }
 
-        @media only screen and (max-width: 1400px) {
+        @media  (max-device-width: 1440px),  (max-width: 1400px) {
             #description {
                 width: 80%;
             }
@@ -483,13 +484,13 @@
             }
         }
 
-        @media only screen and (min-width: 480px) {
+        @media  (max-device-width: 1440px),  (max-width: 800px) {
             #description {
                 flex-direction: column;
             }
         }
 
-        @media only screen and (min-width: 480px) {
+        @media  (max-device-width: 1440px),  (max-width: 900px) {
             .not-mobile {
                 display: none;
                 overflow: hidden;
@@ -498,19 +499,18 @@
             .div-first-name {
                 margin-left: 2em;
             }
-        }
 
-        @media only screen and (min-width: 480px) {
-            .mobile {
-                display: none;
-                overflow: hidden;
-            }
-        }
-
-        @media only screen and (min-width: 480px) {
             .skill-card {
                 width: 100%;
                 flex-direction: column;
+            }
+        }
+
+        @media  (min-device-width: 1439px), 
+         (min-width: 901px) {
+            .mobile {
+                display: none;
+                overflow: hidden;
             }
         }
 
