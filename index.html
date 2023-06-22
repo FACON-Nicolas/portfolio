@@ -1,1234 +1,1391 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>portfolio</title>
-                <style>
-                * {
-                    font-family: system-ui;
-                }
 
-                header {
-                    display: block;
-                    background-color: rgb(7, 7, 121);
-                    height: 75px;
-                    width: 100%;
-                    box-shadow: 0 0 20px #000;   
-                }
-
-                .header-button {
-                    background-color: rgb(7, 7, 121);
-                    float: right;
-                    color: white;
-                    font-weight: 600;
-                    text-align: center;
-                    vertical-align: middle;
-                    line-height: 75px;
-                    width: 200px;
-                    transition: 1s;
-                    position: relative;
-                }  
-
-                .header-button:hover {
-                    background-color: rgb(7, 7, 75);
-                    transition: 1s;
-                }
-                
-                .profile {
-                    width: 50px;
-                    border-radius: 50%;
-                    margin-left: 12.5px;
-                    float: left;
-                    display: block;
-                    margin-block: 12.5px;
-                }
-
-                .rounded {
-                    border-radius: 50%;
-                }
-
-                @media  (max-device-width: 1440px), (max-width: 900px) {
-                    .header-button {
-                        visibility: hidden !important;
-                        display: none;
-                    }
-                }
-
-                body::-webkit-scrollbar {
-                    width: 0.5em;
-                    background-color: transparent;
-                    margin-right: 10px;
-                }
-
-                body::-webkit-scrollbar-thumb {
-                    background-color: rgb(130, 130, 130, 1);
-                    border-radius: 0.25em;
-                }
-            </style>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="icon" class="rounded" type="image/ico" href="static/assets/images/avatar.png">
-    </head>
-    <body>
-        <header>
-            <a href=""><img class="profile" src="static/assets/images/avatar.png"></a>
-            <a href="/portfolio#description" class="header-button"><div class="header-button">about</div></a>
-            <a href="/portfolio#contact-section"><div class="header-button">contact</div></a>
-            <a href="/portfolio#cv-section"><div class="header-button">CV</div></a>
-            <a href="/portfolio#projects"><div class="header-button">projects</div></a>
-        </header>
-        <main class="content">
-            
+<head>
+    <meta charset="UTF-8">
+    <title>portfolio</title>
     <style>
+        * {
+            font-family: system-ui;
+        }
 
-        body {
-            width: 100vw;
-            overflow-x: hidden;
-            margin: 0;
+        header {
+            display: block;
+            background-color: rgb(7, 7, 121);
+            height: 75px;
+            width: 100%;
+            box-shadow: 0 0 20px #000;
+        }
+
+        .header-button {
+            background-color: rgb(7, 7, 121);
+            float: right;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 75px;
+            width: 200px;
+            transition: 1s;
             position: relative;
         }
-        .section-end {
-            margin: -4vw 0px -4vw 0px;
-            width: 100%;
-            height: 8vw;
-            transform: rotate(-4deg) scale(1.1, 1);
+
+        .header-button:hover {
+            background-color: rgb(7, 7, 75);
+            transition: 1s;
         }
 
-        #first-section {
-            height: 110vh;
-            width: 100%;
-            background-image: url("https://wallpaperaccess.com/full/39632.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        .div-first-name>h1 {
-            font-size: max(3vw, 40px);
-        }
-
-        .div-first-name {
-            color: white;
-            margin-left: 8em;
-            height: min-content;
-            font-size: 20px;
-            line-height: 1.5;
-            transform: translateY(50%);
-        }
-
-        .div-first-text {
-            width: min(700px, 90%);
-        }
-
-        .about-end {
-            background-color: white;
-        }
-
-        .project-end {
-            background-color: rgb(7, 7, 121);
-        }
-
-        .project-start {
-            background-color: rgb(7, 7, 121);
-        }
-
-        #description {
-            width: 60%;
-            margin: auto;
-            display: flex;
-            gap: 20px;
-        }
-
-        #description>div {
-            flex-direction: row;
-            z-index: 2;
+        .profile {
+            width: 50px;
+            border-radius: 50%;
+            margin-left: 12.5px;
+            float: left;
+            display: block;
+            margin-block: 12.5px;
         }
 
         .rounded {
             border-radius: 50%;
-            transition: 0.4s;
         }
 
-        .centered {
-            text-align: center;
-        }
-
-        div.centered {
-            margin: auto;
-            display: inline;
-            text-align: center;
-        }
-
-        .transparent {
-            background-color: rgb(255, 255, 255, 0);
-        }
-
-        a {
-            color: rgba(0, 0, 255, 1);
-            text-decoration: underline 0.1em rgba(255, 255, 255, 0);
-            transition: text-decoration-color 1s;
-        }
-
-        .turquoise {
-            color: turquoise;
-            text-decoration: underline 0.1em rgba(255, 255, 255, 0);
-            transition: text-decoration-color 1s;
-        }
-
-        .turquoise:hover {
-            text-decoration-color: turquoise;
-        }
-
-        a:hover {
-            text-decoration-color: rgba(0, 0, 255, 1);
-        }
-
-        #description>div>img {
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;        
-        }
-
-        #avatar {
-            display: block;
-            margin: auto;
-        }
-
-        .top-margin-100 {
-            margin-top: 100px;
-        }
-
-        .top-margin-75 {
-            margin-top: 75px;
-        }
-
-        .top-margin-50 {
-            margin-top: 50px;
-        }
-
-        .title {
-            font-size: 40px;
-        }
-
-        .project:nth-child(2n) {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .project:nth-child(2n+1) {
-            display: flex;
-            flex-direction: row-reverse;
-        }
-
-        #project-section {
-            background-color: rgb(7, 7, 121); 
-            width: 100%;
-            color: white;
-        }
-
-        .projects {
-            width: 60%;
-            margin: auto;
-        }
-
-        .git {
-            width: 30px;
-            transition: 0.5s;
-        }
-
-        .git:hover {
-            filter: contrast(0%);
-            transition: 0.5s;
-        }
-
-        .img {
-            width: 100%;
-            -webkit-box-shadow: 0 0 20px #000;
-            box-shadow: 0 0 20px #000;   
-            border-radius: 14px;  
-        }
-
-        .proj-img {
-            width: 100%;
-        }
-
-        .proj-description {
-            position: relative;
-            z-index: 10;
-            margin-block: auto;
-            -webkit-box-shadow: 0 0 20px #000;
-            box-shadow: 0 0 20px #000;
-            padding: 40px;
-            border-radius: 15px;
-            height: min-content;
-            background-color: rgb(40, 40, 120); 
-            width: 100%;
-            margin-block: auto;
-        }
-
-        .left {
-            transform: translateX(-25%);
-        }
-
-        .right {
-            transform: translateX(25%);
-        }
-
-        .none {
-            text-decoration: none;
-        }
-
-        .project-title {
-            color: white;
-            text-decoration: none;
-            transition: 1s;
-        }
-
-        .project-title:hover {
-            color: rgb(200, 255, 200);
-            transition: 1s;
-        }
-
-        .date {
-            color: rgb(200, 255, 200);
-        }
-
-        .contact {
-            width: min-content;
-            margin-inline: auto;
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            margin-bottom: 10px;
-        }
-
-        .technologie {
-            color: rgb(200, 255, 200);
-            transition: 0.7s;
-        }
-
-        .technologie:hover {
-            color: rgb(100, 255, 100);
-            transition: 0.7s;
-        }
-
-        .align:nth-child(2n+1) {
-            text-align: right;
-        }
-
-        .align:nth-child(2n) {
-            text-align: left;
-        }
-
-        .card-parent {
-            height: min-content; 
-            background-size: cover; 
-            border-radius: 13px;
-            margin-bottom: 10px;
-            -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            transition: 0.4s;
-        }
-
-        .card-parent:hover {
-            -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 1);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 1);
-            transition: 0.4s;
-        }
-
-        .card-child {
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(0, 0, 0, 0.5); 
-            border-radius: 13px;
-        }
-
-        .card-text {
-            font-size: 20px;
-            line-height: 1.5;
-        }
-
-        .skill-section {
-            width: 80%;
-            margin: auto;
-        }
-
-        .skill-img {
-            border-radius: 8px;
-            display: block;
-            margin: auto 10px 10px 10px;
-        }
-
-        .no-margin-block {
-            margin-block: 0;
-        }
-
-        .button {
-            display: inline;
-            height: min(64px, 10vw);
-            background-color: transparent;
-            border: 3px solid white;
-            color: white;
-            width: 20vw;
-            font-weight: 600;
-            font-size: min(20px, auto);
-            border-radius: min(32px, 5vw);
-            transition: 0.4s;
-        }
-
-        Button:hover {
-            color: rgb(7, 7, 121);
-            background-color: white;
-            transition: 0.4s;
-        }
-
-        .skills {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-card {
-            border-radius: 10px;
-            -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            width: calc(33% - 10px);
-            height: max(192px, auto, 100%);
-        }
-
-        .skill-card-title {
-            margin-block: 30px;
-            text-align: center;
-            color: white;
-            background-color: rgb(7, 7, 121);
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            height: 60px;
-            line-height: 60px;
-            vertical-align: middle;
-            margin-top: 0;
-        } 
-
-        .skills-img {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-block: auto;
-        }
-
-        .cv {
-            width: min(717px, 90%);
-            display: block;
-            margin: auto;
-            -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-        }
-
-        .min-size {
-            width: min-content;
-        }
-
-        .icon {
-            width: 64px;
-        }
-
-        .invert {
-            filter: invert(100%)
-        }
-
-        .div-centered {
-            margin: auto;
-        }
-
-        .block-margin-10 {
-            margin-block: 10px;
-        }
-
-        #contact-section {
-            background-color: rgb(7, 7, 121);
-            color: white;
-        }
-
-        .download {
-            font-weight: 600;
-            border-radius: 24px;
-            width: 128px;
-            height: 48px;
-            border: 3px rgb(7, 7, 121) solid;
-            background-color: rgb(7, 7, 121);
-            color: white;
-            transition: 0.4s;
-            margin-block: 25px;
-        }
-
-        .download:hover {
-            background-color: white;
-            color: rgb(7, 7, 121);
-            transition: 0.4s;
-        }
-
-        @media  (max-device-width: 1440px), (max-width: 1600px) {
-            .projects {
-                width: 75%;
-            }
-        }
-
-        @media  (max-device-width: 1440px),  (max-width: 1400px) {
-            #description {
-                width: 80%;
-            }
-
-            .projects {
-                width: 90%;
-            }
-        }
-
-        @media  (max-device-width: 1440px),  (max-width: 800px) {
-            #description {
-                flex-direction: column;
-            }
-        }
-
-        @media  (max-device-width: 1440px),  (max-width: 900px) {
-            .not-mobile {
+        @media (max-device-width: 1440px),
+        (max-width: 900px) {
+            .header-button {
+                visibility: hidden !important;
                 display: none;
-                overflow: hidden;
+            }
+        }
+
+        body::-webkit-scrollbar {
+            width: 0.5em;
+            background-color: transparent;
+            margin-right: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: rgb(130, 130, 130, 1);
+            border-radius: 0.25em;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" class="rounded" type="image/ico" href="static/assets/images/avatar.png">
+</head>
+
+<body>
+    <header>
+        <a href=""><img class="profile" src="static/assets/images/avatar.png"></a>
+        <a href="/portfolio#description" class="header-button">
+            <div class="header-button">about</div>
+        </a>
+        <a href="/portfolio#contact-section">
+            <div class="header-button">contact</div>
+        </a>
+        <a href="/portfolio#cv-section">
+            <div class="header-button">CV</div>
+        </a>
+        <a href="/portfolio#projects">
+            <div class="header-button">projects</div>
+        </a>
+    </header>
+    <main class="content">
+
+        <style>
+            body {
+                width: 100vw;
+                overflow-x: hidden;
+                margin: 0;
+                position: relative;
+            }
+
+            .section-end {
+                margin: -4vw 0px -4vw 0px;
+                width: 100%;
+                height: 8vw;
+                transform: rotate(-4deg) scale(1.1, 1);
+            }
+
+            #first-section {
+                height: 110vh;
+                width: 100%;
+                background-image: url("https://wallpaperaccess.com/full/39632.jpg");
+                background-size: cover;
+                background-position: center;
+            }
+
+            .div-first-name>h1 {
+                font-size: max(3vw, 40px);
             }
 
             .div-first-name {
-                margin-left: 2em;
+                color: white;
+                margin-left: 8em;
+                height: min-content;
+                font-size: 20px;
+                line-height: 1.5;
+                transform: translateY(50%);
+            }
+
+            .div-first-text {
+                width: min(700px, 90%);
+            }
+
+            .about-end {
+                background-color: white;
+            }
+
+            .project-end {
+                background-color: rgb(7, 7, 121);
+            }
+
+            .project-start {
+                background-color: rgb(7, 7, 121);
+            }
+
+            #description {
+                width: 60%;
+                margin: auto;
+                display: flex;
+                gap: 20px;
+            }
+
+            #description>div {
+                flex-direction: row;
+                z-index: 2;
+            }
+
+            .rounded {
+                border-radius: 50%;
+                transition: 0.4s;
+            }
+
+            .centered {
+                text-align: center;
+            }
+
+            div.centered {
+                margin: auto;
+                display: inline;
+                text-align: center;
+            }
+
+            .transparent {
+                background-color: rgb(255, 255, 255, 0);
+            }
+
+            a {
+                color: rgba(0, 0, 255, 1);
+                text-decoration: underline 0.1em rgba(255, 255, 255, 0);
+                transition: text-decoration-color 1s;
+            }
+
+            .turquoise {
+                color: turquoise;
+                text-decoration: underline 0.1em rgba(255, 255, 255, 0);
+                transition: text-decoration-color 1s;
+            }
+
+            .turquoise:hover {
+                text-decoration-color: turquoise;
+            }
+
+            a:hover {
+                text-decoration-color: rgba(0, 0, 255, 1);
+            }
+
+            #description>div>img {
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+            }
+
+            #avatar {
+                display: block;
+                margin: auto;
+            }
+
+            .top-margin-100 {
+                margin-top: 100px;
+            }
+
+            .top-margin-75 {
+                margin-top: 75px;
+            }
+
+            .top-margin-50 {
+                margin-top: 50px;
+            }
+
+            .title {
+                font-size: 40px;
+            }
+
+            .project:nth-child(2n) {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .project:nth-child(2n+1) {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+
+            #project-section {
+                background-color: rgb(7, 7, 121);
+                width: 100%;
+                color: white;
+            }
+
+            .projects {
+                width: 60%;
+                margin: auto;
+            }
+
+            .git {
+                width: 30px;
+                transition: 0.5s;
+            }
+
+            .git:hover {
+                filter: contrast(0%);
+                transition: 0.5s;
+            }
+
+            .img {
+                width: 100%;
+                -webkit-box-shadow: 0 0 20px #000;
+                box-shadow: 0 0 20px #000;
+                border-radius: 14px;
+            }
+
+            .proj-img {
+                width: 100%;
+            }
+
+            .proj-description {
+                position: relative;
+                z-index: 10;
+                margin-block: auto;
+                -webkit-box-shadow: 0 0 20px #000;
+                box-shadow: 0 0 20px #000;
+                padding: 40px;
+                border-radius: 15px;
+                height: min-content;
+                background-color: rgb(40, 40, 120);
+                width: 100%;
+                margin-block: auto;
+            }
+
+            .left {
+                transform: translateX(-25%);
+            }
+
+            .right {
+                transform: translateX(25%);
+            }
+
+            .none {
+                text-decoration: none;
+            }
+
+            .project-title {
+                color: white;
+                text-decoration: none;
+                transition: 1s;
+            }
+
+            .project-title:hover {
+                color: rgb(200, 255, 200);
+                transition: 1s;
+            }
+
+            .date {
+                color: rgb(200, 255, 200);
+            }
+
+            .contact {
+                width: min-content;
+                margin-inline: auto;
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                margin-bottom: 10px;
+            }
+
+            .technologie {
+                color: rgb(200, 255, 200);
+                transition: 0.7s;
+            }
+
+            .technologie:hover {
+                color: rgb(100, 255, 100);
+                transition: 0.7s;
+            }
+
+            .align:nth-child(2n+1) {
+                text-align: right;
+            }
+
+            .align:nth-child(2n) {
+                text-align: left;
+            }
+
+            .card-parent {
+                height: min-content;
+                background-size: cover;
+                border-radius: 13px;
+                margin-bottom: 10px;
+                -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+                transition: 0.4s;
+            }
+
+            .card-parent:hover {
+                -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+                transition: 0.4s;
+            }
+
+            .card-child {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                border-radius: 13px;
+            }
+
+            .card-text {
+                font-size: 20px;
+                line-height: 1.5;
+            }
+
+            .skill-section {
+                width: 80%;
+                margin: auto;
+            }
+
+            .skill-img {
+                border-radius: 8px;
+                display: block;
+                margin: auto 10px 10px 10px;
+            }
+
+            .no-margin-block {
+                margin-block: 0;
+            }
+
+            .button {
+                display: inline;
+                height: min(64px, 10vw);
+                background-color: transparent;
+                border: 3px solid white;
+                color: white;
+                width: 20vw;
+                font-weight: 600;
+                font-size: min(20px, auto);
+                border-radius: min(32px, 5vw);
+                transition: 0.4s;
+            }
+
+            Button:hover {
+                color: rgb(7, 7, 121);
+                background-color: white;
+                transition: 0.4s;
+            }
+
+            .skills {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 10px;
             }
 
             .skill-card {
-                width: 100%;
-                flex-direction: column;
+                border-radius: 10px;
+                -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+                width: calc(33% - 10px);
+                height: max(192px, auto, 100%);
             }
-        }
 
-        @media  (min-device-width: 1439px), 
-         (min-width: 901px) {
+            .skill-card-title {
+                margin-block: 30px;
+                text-align: center;
+                color: white;
+                background-color: rgb(7, 7, 121);
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                height: 60px;
+                line-height: 60px;
+                vertical-align: middle;
+                margin-top: 0;
+            }
+
+            .skills-img {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                flex-wrap: wrap;
+                margin-block: auto;
+            }
+
+            .cv {
+                width: min(717px, 90%);
+                display: block;
+                margin: auto;
+                -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            }
+
+            .min-size {
+                width: min-content;
+            }
+
+            .icon {
+                width: 64px;
+            }
+
+            .invert {
+                filter: invert(100%)
+            }
+
+            .div-centered {
+                margin: auto;
+            }
+
+            .block-margin-10 {
+                margin-block: 10px;
+            }
+
+            #contact-section {
+                background-color: rgb(7, 7, 121);
+                color: white;
+            }
+
             .mobile {
                 display: none;
                 overflow: hidden;
             }
-        }
 
-        @media (max-device-width: 1440px) {
-            #avatar {
-                width: 100%;
+            .download {
+                font-weight: 600;
+                border-radius: 24px;
+                width: 128px;
+                height: 48px;
+                border: 3px rgb(7, 7, 121) solid;
+                background-color: rgb(7, 7, 121);
+                color: white;
+                transition: 0.4s;
+                margin-block: 25px;
             }
-        }
+
+            .download:hover {
+                background-color: white;
+                color: rgb(7, 7, 121);
+                transition: 0.4s;
+            }
+
+            @media (max-device-width: 1440px),
+            (max-width: 1600px) {
+                .projects {
+                    width: 75%;
+                }
+            }
+
+            @media (max-device-width: 1440px),
+            (max-width: 1400px) {
+                #description {
+                    width: 80%;
+                }
+
+                .projects {
+                    width: 90%;
+                }
+            }
+
+            @media (max-device-width: 1440px),
+            (max-width: 800px) {
+                #description {
+                    flex-direction: column;
+                }
+            }
+
+            @media (max-device-width: 1440px),
+            (max-width: 900px) {
+                .not-mobile {
+                    display: none;
+                }
+
+                .div-first-name {
+                    margin-left: 2em;
+                }
+
+                .skill-card {
+                    width: 100%;
+                    flex-direction: column;
+                }
 
 
-    </style>
-    <div id="first-section">
-        <div class="div-first-name">
-            Hi, my name is
-            <h1 class="">FACON Nicolas</h1>  
-            <h1 class="">I'm a Software Developer</h1>  
-            <p class="div-first-text"> I am a 20 years old student in the <a class="turquoise">Lens University Institute of Technology</a> and I am studying computer Science, I am open to any opportunity.</p>
+                .mobile {
+                    display: block !important;
+                    overflow: visible !important;
+                }
+            }
+
+            @media (max-device-width: 1440px) {
+                #avatar {
+                    width: 100%;
+                }
+            }
+        </style>
+        <div id="first-section">
+            <div class="div-first-name">
+                Hi, my name is
+                <h1 class="">FACON Nicolas</h1>
+                <h1 class="">I'm a Software Developer</h1>
+                <p class="div-first-text"> I am a 20 years old student in the <a class="turquoise">Lens University
+                        Institute of Technology</a> and I am studying computer Science, I am open to any opportunity.
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="section-end about-end"></div>
-    <h1 class="centered title top-margin-100">Who Am I ?</h1>
-    <section id="description">
-        <div class="centered">
-            <span>
-             👋 Hi! My name is Nicolas Facon and I develop games, websites and applications on my free time.
-            I like learn with programming about IT and about the things I work with. It's a sort of challenge for me.<br/><br/>
+        <div class="section-end about-end"></div>
+        <h1 class="centered title top-margin-100">Who Am I ?</h1>
+        <section id="description">
+            <div class="centered">
+                <span>
+                    👋 Hi! My name is Nicolas Facon and I develop games, websites and applications on my free time.
+                    I like learn with programming about IT and about the things I work with. It's a sort of challenge
+                    for me.<br /><br />
 
-            👨‍🎓 In 2021, I entered in Lens University Institute of Technology, french university in IT, to learn more about software and web development. I am currently on the second year of my studies. I discovered a lot of technologies and languages and I also put my knowledge into practice in various <a href="#projects">projects</a>.<br/><br/>
+                    👨‍🎓 In 2021, I entered in Lens University Institute of Technology, french university in IT, to
+                    learn more about software and web development. I am currently on the second year of my studies. I
+                    discovered a lot of technologies and languages and I also put my knowledge into practice in various
+                    <a href="#projects">projects</a>.<br /><br />
 
-            My hobbies are <b>reading</b>📚, <b>programming</b>🤖, <b>walking</b>🚶‍♂️, <b>learn foreigns languages</b>🏴󠁧󠁢󠁥󠁮󠁧󠁿 🇪🇸 and <b>sciences</b>🔬. Currently, I am reading a book about cosmos in a foreign language (Spanish).<br/><br/>
+                    My hobbies are <b>reading</b>📚, <b>programming</b>🤖, <b>walking</b>🚶‍♂️, <b>learn foreigns
+                        languages</b>🏴󠁧󠁢󠁥󠁮󠁧󠁿 🇪🇸 and <b>sciences</b>🔬. Currently, I am reading a book about
+                    cosmos in a foreign language (Spanish).<br /><br />
 
-            📍 I am ready to work in internship in the Arras, Lens, Béthune and Lille area in France from June to August 2023.
-            </span>
-        </div>
-        <div><img class="rounded" id="avatar" src="static/assets/images/avatar.png"></div>
-    </section>
-    <div class="section-end about-end top-margin-50"></div>
-    <section id="project-section">
-        <div class="section-end project-start"></div>
-        <h1 class="centered title transparent top-margin-100" id="projects">Some of my projects</h1>
-        <div class="projects">
-            
+                    📍 I am ready to work in internship in the Arras, Lens, Béthune and Lille area in France from June
+                    to August 2023.
+                </span>
+            </div>
+            <div><img class="rounded" id="avatar" src="static/assets/images/avatar.png"></div>
+        </section>
+        <div class="section-end about-end top-margin-50"></div>
+        <section id="project-section">
+            <div class="section-end project-start"></div>
+            <h1 class="centered title transparent top-margin-100" id="projects">Some of my projects</h1>
+            <div class="projects">
 
-            <!-- on va attaquer la responsive, ici c'est le mode PC -->
-            <div class="align not-mobile">
-                <p class="date">2022 • Personal Project</p>
-                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/sprite-sheet-splitter"><h1>Sprite Sheet Splitter </h1></a>
-            </div><br class="not-mobile"/>
+
+                <!-- on va attaquer la responsive, ici c'est le mode PC -->
+                <div class="align not-mobile">
+                    <p class="date">2022 • Personal Project</p>
+                    <a class="project-title" target="_blank"
+                        href="https://github.com/FACON-Nicolas/sprite-sheet-splitter">
+                        <h1>Sprite Sheet Splitter </h1>
+                    </a>
+                </div><br class="not-mobile" />
                 <div class="project not-mobile">
                     <div class="proj-img not-mobile">
-                        <a><img class="img not-mobile" src="https://camo.githubusercontent.com/6967796c777c7867f18c35570b5cd026c9c3d533591837a8250cb69ce93c810c/68747470733a2f2f692e6962622e636f2f564e376a4474622f7370726974652d73686565742e706e67"></a>
+                        <a><img class="img not-mobile"
+                                src="https://camo.githubusercontent.com/6967796c777c7867f18c35570b5cd026c9c3d533591837a8250cb69ce93c810c/68747470733a2f2f692e6962622e636f2f564e376a4474622f7370726974652d73686565742e706e67"></a>
                     </div>
                     <div class="proj-description not-mobile  right ">
-                        This project contains the source code of a sprite sheet splitter. This sprite sheet splitter cans split a sprite sheet with N rows and N columns and a margin cans be applied from the left, the right, the top and the button of the sprite sheet.
-                    </div>                
-                </div><br class="not-mobile"/>
+                        This project contains the source code of a sprite sheet splitter. This sprite sheet splitter
+                        cans split a sprite sheet with N rows and N columns and a margin cans be applied from the left,
+                        the right, the top and the button of the sprite sheet.
+                    </div>
+                </div><br class="not-mobile" />
                 <div class="align not-mobile">
                     <span>
-                        
-                            
-                                <span class="technologie">
-                                    python &nbsp;
-                                </span>
-                            
-                                <span class="technologie">
-                                    Tkinter &nbsp;
-                                </span>
-                            
-                                <span class="technologie">
-                                    PIL &nbsp;
-                                </span>
-                            
-                        
-                    </span><br class="not-mobile"/><br class="not-mobile"/>
-                    <a href="https://github.com/FACON-Nicolas/sprite-sheet-splitter" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+
+
+                        <span class="technologie">
+                            python &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            Tkinter &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            PIL &nbsp;
+                        </span>
+
+
+                    </span><br class="not-mobile" /><br class="not-mobile" />
+                    <a href="https://github.com/FACON-Nicolas/sprite-sheet-splitter" target="_blank"><img class="git"
+                            src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
                 </div>
 
-            <!-- ici la partie mobile -->
-            
+                <!-- ici la partie mobile -->
 
-            <!-- on va attaquer la responsive, ici c'est le mode PC -->
-            <div class="align not-mobile">
-                <p class="date">2022 • School Project</p>
-                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/fractals-generator"><h1>Fractals Images Generator </h1></a>
-            </div><br class="not-mobile"/>
+
+                <!-- on va attaquer la responsive, ici c'est le mode PC -->
+                <div class="align not-mobile">
+                    <p class="date">2022 • School Project</p>
+                    <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/fractals-generator">
+                        <h1>Fractals Images Generator </h1>
+                    </a>
+                </div><br class="not-mobile" />
                 <div class="project not-mobile">
                     <div class="proj-img not-mobile">
                         <a><img class="img not-mobile" src="https://i.ibb.co/TBF2QCt/fractal.png"></a>
                     </div>
                     <div class="proj-description not-mobile  left ">
-                        This is a project developped at school and the goal was to develop a library to generate fractals images.
-                    </div>                
-                </div><br class="not-mobile"/>
+                        This is a project developped at school and the goal was to develop a library to generate
+                        fractals images.
+                    </div>
+                </div><br class="not-mobile" />
                 <div class="align not-mobile">
                     <span>
-                        
-                            
+
+
+                        <span class="technologie">
+                            Java &nbsp;
+                        </span>
+
+
+                    </span><br class="not-mobile" /><br class="not-mobile" />
+                    <a href="https://github.com/FACON-Nicolas/fractals-generator" target="_blank"><img class="git"
+                            src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                </div>
+
+                <!-- ici la partie mobile -->
+
+
+                <!-- on va attaquer la responsive, ici c'est le mode PC -->
+                <div class="align not-mobile">
+                    <p class="date">2022 • Personal Project</p>
+                    <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/pacman">
+                        <h1>Pacman </h1>
+                    </a>
+                </div><br class="not-mobile" />
+                <div class="project not-mobile">
+                    <div class="proj-img not-mobile">
+                        <a><img class="img not-mobile"
+                                src="https://raw.githubusercontent.com/FACON-Nicolas/FACON-Nicolas/main/resources/pacman.gif?raw=true"></a>
+                    </div>
+                    <div class="proj-description not-mobile  right ">
+                        This project is composed by a source code of pacman in C++. the project needs an implementation
+                        of A* algorithm, sound FX, and better conception.
+                        My pacman project is composed by a pacman played by a human, and 3 ghosts Clyde, Pinky, Blinky.
+                    </div>
+                </div><br class="not-mobile" />
+                <div class="align not-mobile">
+                    <span>
+
+
+                        <span class="technologie">
+                            SFML &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            C++ &nbsp;
+                        </span>
+
+
+                    </span><br class="not-mobile" /><br class="not-mobile" />
+                    <a href="https://github.com/FACON-Nicolas/pacman" target="_blank"><img class="git"
+                            src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                </div>
+
+                <!-- ici la partie mobile -->
+
+
+                <!-- on va attaquer la responsive, ici c'est le mode PC -->
+                <div class="align not-mobile">
+                    <p class="date">2022 • Personal Project</p>
+                    <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/conways-cpp">
+                        <h1>Conway&#39;s Game of Life (C++) </h1>
+                    </a>
+                </div><br class="not-mobile" />
+                <div class="project not-mobile">
+                    <div class="proj-img not-mobile">
+                        <a><img class="img not-mobile"
+                                src="https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/conways-cpp.gif?raw=true"></a>
+                    </div>
+                    <div class="proj-description not-mobile  left ">
+                        This project is my first project in C++ with SFML library (similar to pygame in python), this
+                        conway&#39;s game of life is exactly the same as the conway&#39;s game of life developed in
+                        python.
+                    </div>
+                </div><br class="not-mobile" />
+                <div class="align not-mobile">
+                    <span>
+
+
+                        <span class="technologie">
+                            SFML &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            C++ &nbsp;
+                        </span>
+
+
+                    </span><br class="not-mobile" /><br class="not-mobile" />
+                    <a href="https://github.com/FACON-Nicolas/conways-cpp" target="_blank"><img class="git"
+                            src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                </div>
+
+                <!-- ici la partie mobile -->
+
+
+                <!-- on va attaquer la responsive, ici c'est le mode PC -->
+                <div class="align not-mobile">
+                    <p class="date">2022 • Personal Project</p>
+                    <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/conways-life-game">
+                        <h1>Conway&#39;s Game of Life (python) </h1>
+                    </a>
+                </div><br class="not-mobile" />
+                <div class="project not-mobile">
+                    <div class="proj-img not-mobile">
+                        <a><img class="img not-mobile"
+                                src="https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/conways-py.gif?raw=true"></a>
+                    </div>
+                    <div class="proj-description not-mobile  right ">
+                        This project is a conways game of life developed in python with the pygame library. This project
+                        contains a GUI implemented on the window, for the buttons (reset, last step, next step, pause /
+                        resume and random grid) management.
+                    </div>
+                </div><br class="not-mobile" />
+                <div class="align not-mobile">
+                    <span>
+
+
+                        <span class="technologie">
+                            python &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            pygame &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            pygame_gui &nbsp;
+                        </span>
+
+
+                    </span><br class="not-mobile" /><br class="not-mobile" />
+                    <a href="https://github.com/FACON-Nicolas/conways-life-game" target="_blank"><img class="git"
+                            src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                </div>
+
+                <!-- ici la partie mobile -->
+
+
+                <!-- on va attaquer la responsive, ici c'est le mode PC -->
+                <div class="align not-mobile">
+                    <p class="date">2021 • Personal Project</p>
+                    <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/Tetris">
+                        <h1>Tetris</h1>
+                    </a>
+                </div><br class="not-mobile" />
+                <div class="project not-mobile">
+                    <div class="proj-img not-mobile">
+                        <a><img class="img not-mobile"
+                                src="https://raw.githubusercontent.com/FACON-Nicolas/FACON-Nicolas/main/resources/tetris.gif?raw=true"></a>
+                    </div>
+                    <div class="proj-description not-mobile  left ">
+                        This project is a Tetris&#39; copy developed in python with the pygame library. This is my first
+                        project with a GUI implemented on the window, for pause and game over menu, a database is
+                        developed but not used.
+                    </div>
+                </div><br class="not-mobile" />
+                <div class="align not-mobile">
+                    <span>
+
+
+                        <span class="technologie">
+                            python &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            pygame &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            pygame_gui &nbsp;
+                        </span>
+
+
+                    </span><br class="not-mobile" /><br class="not-mobile" />
+                    <a href="https://github.com/FACON-Nicolas/Tetris" target="_blank"><img class="git"
+                            src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                </div>
+
+                <!-- ici la partie mobile -->
+
+
+                <!-- on va attaquer la responsive, ici c'est le mode PC -->
+                <div class="align not-mobile">
+                    <p class="date">2021 • Personal Project</p>
+                    <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/Puissance4">
+                        <h1>Connect 4</h1>
+                    </a>
+                </div><br class="not-mobile" />
+                <div class="project not-mobile">
+                    <div class="proj-img not-mobile">
+                        <a><img class="img not-mobile"
+                                src="https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/connect4.gif?raw=true"></a>
+                    </div>
+                    <div class="proj-description not-mobile  right ">
+                        This project is a connect4&#39;s (puissance 4) copy. In this game, your computer cans also play
+                        against you like a human player, good luck !
+                    </div>
+                </div><br class="not-mobile" />
+                <div class="align not-mobile">
+                    <span>
+
+
+                        <span class="technologie">
+                            python &nbsp;
+                        </span>
+
+                        <span class="technologie">
+                            pygame &nbsp;
+                        </span>
+
+
+                    </span><br class="not-mobile" /><br class="not-mobile" />
+                    <a href="https://github.com/FACON-Nicolas/Puissance4" target="_blank"><img class="git"
+                            src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                </div>
+
+                <!-- ici la partie mobile -->
+
+
+
+                <div style="background-image: url(https://camo.githubusercontent.com/6967796c777c7867f18c35570b5cd026c9c3d533591837a8250cb69ce93c810c/68747470733a2f2f692e6962622e636f2f564e376a4474622f7370726974652d73686565742e706e67)"
+                    class="card-parent mobile">
+                    <div class="mobile card-child">
+                        <div style="margin-inline: 1em">
+                            <p style="padding-top: 50px" class="date">2022 • Personal Project</p>
+                            <a class="project-title" target="_blank"
+                                href="https://github.com/FACON-Nicolas/sprite-sheet-splitter">
+                                <h1>Sprite Sheet Splitter </h1>
+                            </a>
+                            <p class="card-text">This project contains the source code of a sprite sheet splitter. This
+                                sprite sheet splitter cans split a sprite sheet with N rows and N columns and a margin
+                                cans be applied from the left, the right, the top and the button of the sprite sheet.
+                            </p>
+                            <span>
+
+
+                                <span class="technologie">
+                                    python &nbsp;
+                                </span>
+
+                                <span class="technologie">
+                                    Tkinter &nbsp;
+                                </span>
+
+                                <span class="technologie">
+                                    PIL &nbsp;
+                                </span>
+
+
+                            </span><br class="mobile" /><br class="mobile" />
+                            <a href="https://github.com/FACON-Nicolas/sprite-sheet-splitter" target="_blank"><img
+                                    class="git"
+                                    src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                            <br class="mobile" /><br class="mobile" />
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background-image: url(https://i.ibb.co/TBF2QCt/fractal.png)" class="card-parent mobile">
+                    <div class="mobile card-child">
+                        <div style="margin-inline: 1em">
+                            <p style="padding-top: 50px" class="date">2022 • School Project</p>
+                            <a class="project-title" target="_blank"
+                                href="https://github.com/FACON-Nicolas/fractals-generator">
+                                <h1>Fractals Images Generator </h1>
+                            </a>
+                            <p class="card-text">This is a project developped at school and the goal was to develop a
+                                library to generate fractals images.</p>
+                            <span>
+
+
                                 <span class="technologie">
                                     Java &nbsp;
                                 </span>
-                            
-                        
-                    </span><br class="not-mobile"/><br class="not-mobile"/>
-                    <a href="https://github.com/FACON-Nicolas/fractals-generator" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+
+
+                            </span><br class="mobile" /><br class="mobile" />
+                            <a href="https://github.com/FACON-Nicolas/fractals-generator" target="_blank"><img
+                                    class="git"
+                                    src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                            <br class="mobile" /><br class="mobile" />
+                        </div>
+                    </div>
                 </div>
 
-            <!-- ici la partie mobile -->
-            
+                <div style="background-image: url(https://raw.githubusercontent.com/FACON-Nicolas/FACON-Nicolas/main/resources/pacman.gif?raw=true)"
+                    class="card-parent mobile">
+                    <div class="mobile card-child">
+                        <div style="margin-inline: 1em">
+                            <p style="padding-top: 50px" class="date">2022 • Personal Project</p>
+                            <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/pacman">
+                                <h1>Pacman </h1>
+                            </a>
+                            <p class="card-text">This project is composed by a source code of pacman in C++. the project
+                                needs an implementation of A* algorithm, sound FX, and better conception.
+                                My pacman project is composed by a pacman played by a human, and 3 ghosts Clyde, Pinky,
+                                Blinky.</p>
+                            <span>
 
-            <!-- on va attaquer la responsive, ici c'est le mode PC -->
-            <div class="align not-mobile">
-                <p class="date">2022 • Personal Project</p>
-                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/pacman"><h1>Pacman </h1></a>
-            </div><br class="not-mobile"/>
-                <div class="project not-mobile">
-                    <div class="proj-img not-mobile">
-                        <a><img class="img not-mobile" src="https://raw.githubusercontent.com/FACON-Nicolas/FACON-Nicolas/main/resources/pacman.gif?raw=true"></a>
-                    </div>
-                    <div class="proj-description not-mobile  right ">
-                        This project is composed by a source code of pacman in C++. the project needs an implementation of A* algorithm, sound FX, and better conception. 
- My pacman project is composed by a pacman played by a human, and 3 ghosts Clyde, Pinky, Blinky.
-                    </div>                
-                </div><br class="not-mobile"/>
-                <div class="align not-mobile">
-                    <span>
-                        
-                            
+
                                 <span class="technologie">
                                     SFML &nbsp;
                                 </span>
-                            
+
                                 <span class="technologie">
                                     C++ &nbsp;
                                 </span>
-                            
-                        
-                    </span><br class="not-mobile"/><br class="not-mobile"/>
-                    <a href="https://github.com/FACON-Nicolas/pacman" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+
+
+                            </span><br class="mobile" /><br class="mobile" />
+                            <a href="https://github.com/FACON-Nicolas/pacman" target="_blank"><img class="git"
+                                    src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                            <br class="mobile" /><br class="mobile" />
+                        </div>
+                    </div>
                 </div>
 
-            <!-- ici la partie mobile -->
-            
+                <div style="background-image: url(https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/conways-cpp.gif?raw=true)"
+                    class="card-parent mobile">
+                    <div class="mobile card-child">
+                        <div style="margin-inline: 1em">
+                            <p style="padding-top: 50px" class="date">2022 • Personal Project</p>
+                            <a class="project-title" target="_blank"
+                                href="https://github.com/FACON-Nicolas/conways-cpp">
+                                <h1>Conway&#39;s Game of Life (C++) </h1>
+                            </a>
+                            <p class="card-text">This project is my first project in C++ with SFML library (similar to
+                                pygame in python), this conway&#39;s game of life is exactly the same as the
+                                conway&#39;s game of life developed in python.</p>
+                            <span>
 
-            <!-- on va attaquer la responsive, ici c'est le mode PC -->
-            <div class="align not-mobile">
-                <p class="date">2022 • Personal Project</p>
-                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/conways-cpp"><h1>Conway&#39;s Game of Life (C++) </h1></a>
-            </div><br class="not-mobile"/>
-                <div class="project not-mobile">
-                    <div class="proj-img not-mobile">
-                        <a><img class="img not-mobile" src="https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/conways-cpp.gif?raw=true"></a>
-                    </div>
-                    <div class="proj-description not-mobile  left ">
-                        This project is my first project in C++ with SFML library (similar to pygame in python), this conway&#39;s game of life is exactly the same as the conway&#39;s game of life developed in python.
-                    </div>                
-                </div><br class="not-mobile"/>
-                <div class="align not-mobile">
-                    <span>
-                        
-                            
+
                                 <span class="technologie">
                                     SFML &nbsp;
                                 </span>
-                            
+
                                 <span class="technologie">
                                     C++ &nbsp;
                                 </span>
-                            
-                        
-                    </span><br class="not-mobile"/><br class="not-mobile"/>
-                    <a href="https://github.com/FACON-Nicolas/conways-cpp" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+
+
+                            </span><br class="mobile" /><br class="mobile" />
+                            <a href="https://github.com/FACON-Nicolas/conways-cpp" target="_blank"><img class="git"
+                                    src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                            <br class="mobile" /><br class="mobile" />
+                        </div>
+                    </div>
                 </div>
 
-            <!-- ici la partie mobile -->
-            
+                <div style="background-image: url(https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/conways-py.gif?raw=true)"
+                    class="card-parent mobile">
+                    <div class="mobile card-child">
+                        <div style="margin-inline: 1em">
+                            <p style="padding-top: 50px" class="date">2022 • Personal Project</p>
+                            <a class="project-title" target="_blank"
+                                href="https://github.com/FACON-Nicolas/conways-life-game">
+                                <h1>Conway&#39;s Game of Life (python) </h1>
+                            </a>
+                            <p class="card-text">This project is a conways game of life developed in python with the
+                                pygame library. This project contains a GUI implemented on the window, for the buttons
+                                (reset, last step, next step, pause / resume and random grid) management.</p>
+                            <span>
 
-            <!-- on va attaquer la responsive, ici c'est le mode PC -->
-            <div class="align not-mobile">
-                <p class="date">2022 • Personal Project</p>
-                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/conways-life-game"><h1>Conway&#39;s Game of Life (python) </h1></a>
-            </div><br class="not-mobile"/>
-                <div class="project not-mobile">
-                    <div class="proj-img not-mobile">
-                        <a><img class="img not-mobile" src="https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/conways-py.gif?raw=true"></a>
-                    </div>
-                    <div class="proj-description not-mobile  right ">
-                        This project is a conways game of life developed in python with the pygame library. This project contains a GUI implemented on the window, for the buttons (reset, last step, next step, pause / resume and random grid) management.
-                    </div>                
-                </div><br class="not-mobile"/>
-                <div class="align not-mobile">
-                    <span>
-                        
-                            
+
                                 <span class="technologie">
                                     python &nbsp;
                                 </span>
-                            
+
                                 <span class="technologie">
                                     pygame &nbsp;
                                 </span>
-                            
+
                                 <span class="technologie">
                                     pygame_gui &nbsp;
                                 </span>
-                            
-                        
-                    </span><br class="not-mobile"/><br class="not-mobile"/>
-                    <a href="https://github.com/FACON-Nicolas/conways-life-game" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+
+
+                            </span><br class="mobile" /><br class="mobile" />
+                            <a href="https://github.com/FACON-Nicolas/conways-life-game" target="_blank"><img
+                                    class="git"
+                                    src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                            <br class="mobile" /><br class="mobile" />
+                        </div>
+                    </div>
                 </div>
 
-            <!-- ici la partie mobile -->
-            
+                <div style="background-image: url(https://raw.githubusercontent.com/FACON-Nicolas/FACON-Nicolas/main/resources/tetris.gif?raw=true)"
+                    class="card-parent mobile">
+                    <div class="mobile card-child">
+                        <div style="margin-inline: 1em">
+                            <p style="padding-top: 50px" class="date">2021 • Personal Project</p>
+                            <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/Tetris">
+                                <h1>tetris </h1>
+                            </a>
+                            <p class="card-text">This project is a Tetris&#39; copy developed in python with the pygame
+                                library. This is my first project with a GUI implemented on the window, for pause and
+                                game over menu, a database is developed but not used.</p>
+                            <span>
 
-            <!-- on va attaquer la responsive, ici c'est le mode PC -->
-            <div class="align not-mobile">
-                <p class="date">2021 • Personal Project</p>
-                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/Tetris"><h1>Tetris</h1></a>
-            </div><br class="not-mobile"/>
-                <div class="project not-mobile">
-                    <div class="proj-img not-mobile">
-                        <a><img class="img not-mobile" src="https://raw.githubusercontent.com/FACON-Nicolas/FACON-Nicolas/main/resources/tetris.gif?raw=true"></a>
-                    </div>
-                    <div class="proj-description not-mobile  left ">
-                        This project is a Tetris&#39; copy developed in python with the pygame library. This is my first project with a GUI implemented on the window, for pause and game over menu, a database is developed but not used.
-                    </div>                
-                </div><br class="not-mobile"/>
-                <div class="align not-mobile">
-                    <span>
-                        
-                            
+
                                 <span class="technologie">
                                     python &nbsp;
                                 </span>
-                            
+
                                 <span class="technologie">
                                     pygame &nbsp;
                                 </span>
-                            
+
                                 <span class="technologie">
                                     pygame_gui &nbsp;
                                 </span>
-                            
-                        
-                    </span><br class="not-mobile"/><br class="not-mobile"/>
-                    <a href="https://github.com/FACON-Nicolas/Tetris" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+
+
+                            </span><br class="mobile" /><br class="mobile" />
+                            <a href="https://github.com/FACON-Nicolas/Tetris" target="_blank"><img class="git"
+                                    src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                            <br class="mobile" /><br class="mobile" />
+                        </div>
+                    </div>
                 </div>
 
-            <!-- ici la partie mobile -->
-            
+                <div style="background-image: url(https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/connect4.gif?raw=true)"
+                    class="card-parent mobile">
+                    <div class="mobile card-child">
+                        <div style="margin-inline: 1em">
+                            <p style="padding-top: 50px" class="date">2021 • Personal Project</p>
+                            <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/Puissance4">
+                                <h1>puissance 4 </h1>
+                            </a>
+                            <p class="card-text">This project is a connect4&#39;s (puissance 4) copy. In this game, your
+                                computer cans also play against you like a human player, good luck !</p>
+                            <span>
 
-            <!-- on va attaquer la responsive, ici c'est le mode PC -->
-            <div class="align not-mobile">
-                <p class="date">2021 • Personal Project</p>
-                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/Puissance4"><h1>Connect 4</h1></a>
-            </div><br class="not-mobile"/>
-                <div class="project not-mobile">
-                    <div class="proj-img not-mobile">
-                        <a><img class="img not-mobile" src="https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/connect4.gif?raw=true"></a>
-                    </div>
-                    <div class="proj-description not-mobile  right ">
-                        This project is a connect4&#39;s (puissance 4) copy. In this game, your computer cans also play against you like a human player, good luck !
-                    </div>                
-                </div><br class="not-mobile"/>
-                <div class="align not-mobile">
-                    <span>
-                        
-                            
+
                                 <span class="technologie">
                                     python &nbsp;
                                 </span>
-                            
+
                                 <span class="technologie">
                                     pygame &nbsp;
                                 </span>
-                            
-                        
-                    </span><br class="not-mobile"/><br class="not-mobile"/>
-                    <a href="https://github.com/FACON-Nicolas/Puissance4" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+
+
+                            </span><br class="mobile" /><br class="mobile" />
+                            <a href="https://github.com/FACON-Nicolas/Puissance4" target="_blank"><img class="git"
+                                    src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
+                            <br class="mobile" /><br class="mobile" />
+                        </div>
+                    </div>
                 </div>
 
-            <!-- ici la partie mobile -->
-            
+            </div>
+            <div class="project-end section-end top-margin-50"></div>
+        </section>
+        <div class="section-end about-end"></div>
+        <section class="skill-section">
+            <h1 class="centered title top-margin-100">My Skills</h1>
+            <div class="skills">
 
-            
-                    <div style="background-image: url(https://camo.githubusercontent.com/6967796c777c7867f18c35570b5cd026c9c3d533591837a8250cb69ce93c810c/68747470733a2f2f692e6962622e636f2f564e376a4474622f7370726974652d73686565742e706e67)" class="card-parent mobile">
-                        <div class="mobile card-child" >
-                            <div style="margin-inline: 1em">
-                                <p style="padding-top: 50px" class="date">2022 • Personal Project</p>
-                                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/sprite-sheet-splitter"><h1>Sprite Sheet Splitter </h1></a>                            
-                                <p class="card-text">This project contains the source code of a sprite sheet splitter. This sprite sheet splitter cans split a sprite sheet with N rows and N columns and a margin cans be applied from the left, the right, the top and the button of the sprite sheet.</p>
-                                <span>
-                                    
-                                        
-                                            <span class="technologie">
-                                                python &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                Tkinter &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                PIL &nbsp;
-                                            </span>
-                                        
-                                    
-                                </span><br class="mobile"/><br class="mobile"/>
-                                <a href="https://github.com/FACON-Nicolas/sprite-sheet-splitter" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
-                                <br class="mobile"/><br class="mobile"/>
-                            </div>
-                        </div> 
-                    </div>
-            
-                    <div style="background-image: url(https://i.ibb.co/TBF2QCt/fractal.png)" class="card-parent mobile">
-                        <div class="mobile card-child" >
-                            <div style="margin-inline: 1em">
-                                <p style="padding-top: 50px" class="date">2022 • School Project</p>
-                                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/fractals-generator"><h1>Fractals Images Generator </h1></a>                            
-                                <p class="card-text">This is a project developped at school and the goal was to develop a library to generate fractals images.</p>
-                                <span>
-                                    
-                                        
-                                            <span class="technologie">
-                                                Java &nbsp;
-                                            </span>
-                                        
-                                    
-                                </span><br class="mobile"/><br class="mobile"/>
-                                <a href="https://github.com/FACON-Nicolas/fractals-generator" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
-                                <br class="mobile"/><br class="mobile"/>
-                            </div>
-                        </div> 
-                    </div>
-            
-                    <div style="background-image: url(https://raw.githubusercontent.com/FACON-Nicolas/FACON-Nicolas/main/resources/pacman.gif?raw=true)" class="card-parent mobile">
-                        <div class="mobile card-child" >
-                            <div style="margin-inline: 1em">
-                                <p style="padding-top: 50px" class="date">2022 • Personal Project</p>
-                                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/pacman"><h1>Pacman </h1></a>                            
-                                <p class="card-text">This project is composed by a source code of pacman in C++. the project needs an implementation of A* algorithm, sound FX, and better conception. 
- My pacman project is composed by a pacman played by a human, and 3 ghosts Clyde, Pinky, Blinky.</p>
-                                <span>
-                                    
-                                        
-                                            <span class="technologie">
-                                                SFML &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                C++ &nbsp;
-                                            </span>
-                                        
-                                    
-                                </span><br class="mobile"/><br class="mobile"/>
-                                <a href="https://github.com/FACON-Nicolas/pacman" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
-                                <br class="mobile"/><br class="mobile"/>
-                            </div>
-                        </div> 
-                    </div>
-            
-                    <div style="background-image: url(https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/conways-cpp.gif?raw=true)" class="card-parent mobile">
-                        <div class="mobile card-child" >
-                            <div style="margin-inline: 1em">
-                                <p style="padding-top: 50px" class="date">2022 • Personal Project</p>
-                                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/conways-cpp"><h1>Conway&#39;s Game of Life (C++) </h1></a>                            
-                                <p class="card-text">This project is my first project in C++ with SFML library (similar to pygame in python), this conway&#39;s game of life is exactly the same as the conway&#39;s game of life developed in python.</p>
-                                <span>
-                                    
-                                        
-                                            <span class="technologie">
-                                                SFML &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                C++ &nbsp;
-                                            </span>
-                                        
-                                    
-                                </span><br class="mobile"/><br class="mobile"/>
-                                <a href="https://github.com/FACON-Nicolas/conways-cpp" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
-                                <br class="mobile"/><br class="mobile"/>
-                            </div>
-                        </div> 
-                    </div>
-            
-                    <div style="background-image: url(https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/conways-py.gif?raw=true)" class="card-parent mobile">
-                        <div class="mobile card-child" >
-                            <div style="margin-inline: 1em">
-                                <p style="padding-top: 50px" class="date">2022 • Personal Project</p>
-                                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/conways-life-game"><h1>Conway&#39;s Game of Life (python) </h1></a>                            
-                                <p class="card-text">This project is a conways game of life developed in python with the pygame library. This project contains a GUI implemented on the window, for the buttons (reset, last step, next step, pause / resume and random grid) management.</p>
-                                <span>
-                                    
-                                        
-                                            <span class="technologie">
-                                                python &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                pygame &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                pygame_gui &nbsp;
-                                            </span>
-                                        
-                                    
-                                </span><br class="mobile"/><br class="mobile"/>
-                                <a href="https://github.com/FACON-Nicolas/conways-life-game" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
-                                <br class="mobile"/><br class="mobile"/>
-                            </div>
-                        </div> 
-                    </div>
-            
-                    <div style="background-image: url(https://raw.githubusercontent.com/FACON-Nicolas/FACON-Nicolas/main/resources/tetris.gif?raw=true)" class="card-parent mobile">
-                        <div class="mobile card-child" >
-                            <div style="margin-inline: 1em">
-                                <p style="padding-top: 50px" class="date">2021 • Personal Project</p>
-                                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/Tetris"><h1>tetris </h1></a>                            
-                                <p class="card-text">This project is a Tetris&#39; copy developed in python with the pygame library. This is my first project with a GUI implemented on the window, for pause and game over menu, a database is developed but not used.</p>
-                                <span>
-                                    
-                                        
-                                            <span class="technologie">
-                                                python &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                pygame &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                pygame_gui &nbsp;
-                                            </span>
-                                        
-                                    
-                                </span><br class="mobile"/><br class="mobile"/>
-                                <a href="https://github.com/FACON-Nicolas/Tetris" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
-                                <br class="mobile"/><br class="mobile"/>
-                            </div>
-                        </div> 
-                    </div>
-            
-                    <div style="background-image: url(https://github.com/FACON-Nicolas/FACON-Nicolas/raw/main/resources/connect4.gif?raw=true)" class="card-parent mobile">
-                        <div class="mobile card-child" >
-                            <div style="margin-inline: 1em">
-                                <p style="padding-top: 50px" class="date">2021 • Personal Project</p>
-                                <a class="project-title" target="_blank" href="https://github.com/FACON-Nicolas/Puissance4"><h1>puissance 4 </h1></a>                            
-                                <p class="card-text">This project is a connect4&#39;s (puissance 4) copy. In this game, your computer cans also play against you like a human player, good luck !</p>
-                                <span>
-                                    
-                                        
-                                            <span class="technologie">
-                                                python &nbsp;
-                                            </span>
-                                        
-                                            <span class="technologie">
-                                                pygame &nbsp;
-                                            </span>
-                                        
-                                    
-                                </span><br class="mobile"/><br class="mobile"/>
-                                <a href="https://github.com/FACON-Nicolas/Puissance4" target="_blank"><img class="git" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"></a>
-                                <br class="mobile"/><br class="mobile"/>
-                            </div>
-                        </div> 
-                    </div>
-            
-        </div>
-        <div class="project-end section-end top-margin-50"></div>
-    </section>
-    <div class="section-end about-end"></div>
-    <section class="skill-section">
-        <h1 class="centered title top-margin-100">My Skills</h1>
-        <div class="skills">
-            
-            <div class="skill-card">
-                <h2 class="skill-card-title">Software Development</h2>
-                
-                    <div class="skills-img">
-                        
-                            <a href="https://docs.python.org/3/" target="_blank"><img class="skill-img" src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" height="64"></a>
-                        
-                            <a href="https://learn.microsoft.com/fr-fr/cpp/cpp/?view=msvc-170" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" height="64"></a>
-                        
-                            <a href="https://docs.oracle.com/en/java/javase/17/docs/api/index.html" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/550px-Java_Logo.svg.png" height="64"></a>
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-            </div>
-        
-            <div class="skill-card">
-                <h2 class="skill-card-title">Front-End Development</h2>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                            <a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank"><img class="skill-img" src="https://img.freepik.com/icones-gratuites/html-5_318-566077.jpg?w=2000" height="64"></a>
-                        
-                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png" height="64"></a>
-                        
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img class="skill-img" src="https://www.freepnglogos.com/uploads/javascript-png/js-logo-png-5.png" height="64"></a>
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-            </div>
-        
-            <div class="skill-card">
-                <h2 class="skill-card-title">Back-End Development</h2>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                            <a href="https://www.php.net/manual/fr/intro-whatis.php" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/800px-PHP-logo.svg.png" height="64"></a>
-                        
-                            <a href="https://flask.palletsprojects.com/en/2.2.x/" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/1200px-Flask_logo.svg.png" height="64"></a>
-                        
-                            <a href="https://laravel.com/" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" height="64"></a>
-                        
-                            <a href="https://sql.sh/" target="_blank"><img class="skill-img" src="https://3wa.fr/wp-content/uploads/2020/04/sql-logo.png" height="64"></a>
-                        
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img class="skill-img" src="https://www.freepnglogos.com/uploads/javascript-png/js-logo-png-5.png" height="64"></a>
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-            </div>
-        
-            <div class="skill-card">
-                <h2 class="skill-card-title">Framework</h2>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                            <a href="https://www.pygame.org/news" target="_blank"><img class="skill-img" src="https://www.pygame.org/docs/_images/pygame_lofi.png" height="64"></a>
-                        
-                            <a href="https://www.sfml-dev.org/index-fr.php" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/SFML2.svg/1200px-SFML2.svg.png" height="64"></a>
-                        
-                            <a href="https://www.boost.org/doc/libs/1_81_0/more/getting_started/" target="_blank"><img class="skill-img" src="http://veriakademi.com/images/boost-cpp-programlama-dersleri.png" height="64"></a>
-                        
-                            <a href="https://docs.python.org/fr/3/library/tkinter.html" target="_blank"><img class="skill-img" src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" height="64"></a>
-                        
-                            <a href="https://he-arc.github.io/livre-python/pillow/index.html" target="_blank"><img class="skill-img" src="https://he-arc.github.io/livre-python/_images/pillow.png" height="64"></a>
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-            </div>
-        
-            <div class="skill-card">
-                <h2 class="skill-card-title">Computer Graphics</h2>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                            <a href="https://www.pygame.org/news" target="_blank"><img class="skill-img" src="https://www.pygame.org/docs/_images/pygame_lofi.png" height="64"></a>
-                        
-                            <a href="https://www.sfml-dev.org/index-fr.php" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/SFML2.svg/1200px-SFML2.svg.png" height="64"></a>
-                        
-                            <a href="https://docs.python.org/fr/3/library/tkinter.html" target="_blank"><img class="skill-img" src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" height="64"></a>
-                        
-                            <a href="https://he-arc.github.io/livre-python/pillow/index.html" target="_blank"><img class="skill-img" src="https://he-arc.github.io/livre-python/_images/pillow.png" height="64"></a>
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-            </div>
-        
-            <div class="skill-card">
-                <h2 class="skill-card-title">Database</h2>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                    </div>
-                
-                    <div class="skills-img">
-                        
-                            <a href="https://sql.sh/" target="_blank"><img class="skill-img" src="https://3wa.fr/wp-content/uploads/2020/04/sql-logo.png" height="64"></a>
-                        
-                            <a href="https://www.postgresql.org/" target="_blank"><img class="skill-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" height="64"></a>
-                        
-                    </div>
-                
-            </div>
-        
-        </div>
-    </section>
-    <div class="section-end about-end top-margin-75"></div>
-    <section id="contact-section">
-        <div class="section-end project-start"></div>
-        <h1 class="top-margin-100 centered title">Contact</h1>
+                <div class="skill-card">
+                    <h2 class="skill-card-title">Software Development</h2>
 
-        <div class="margin-top-100 contact div-centered">
-            <a target="_blank" class="none" href="https://www.linkedin.com/in/nicolas-facon/"><button target="_blank" class="button">LinkedIn</button></a>
-            <a target="_blank" class="none" href="mailto:faconicolas@gmail.com"><button target="_blank" class="button">E-mail</button></a>
-            <a target="_blank" class="none" href="https://www.github.com/FACON-Nicolas"><button target="_blank" class="button">github</button></a>
-        </div>
-        <div class="section-end project-start top-margin-75"></div>
-    </section>
-    <div class="section-end about-end"></div>
-    <section id="cv-section">
-        <h1 class="centered title top-margin-100">CV</h1>
-        <div class="cv-fr-es">
-            <img class="cv" src="static/assets/images/CV_FR.png">
-            <div class="div-centered min-size block-margin-10">
-                <a class="none" href="static/assets/pdf/CV_FR.pdf" download="CV_FACON_Nicolas_FR.pdf"><button class="download">download</button></a>
-            </div>
-        </div>
-    </section>
-    </div>
+                    <div class="skills-img">
 
-        </main>
-    </body>
+                        <a href="https://docs.python.org/3/" target="_blank"><img class="skill-img"
+                                src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" height="64"></a>
+
+                        <a href="https://learn.microsoft.com/fr-fr/cpp/cpp/?view=msvc-170" target="_blank"><img
+                                class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png"
+                                height="64"></a>
+
+                        <a href="https://docs.oracle.com/en/java/javase/17/docs/api/index.html" target="_blank"><img
+                                class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/550px-Java_Logo.svg.png"
+                                height="64"></a>
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+                    <h2 class="skill-card-title">Front-End Development</h2>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                        <a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank"><img class="skill-img"
+                                src="https://img.freepik.com/icones-gratuites/html-5_318-566077.jpg?w=2000"
+                                height="64"></a>
+
+                        <a href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_blank"><img class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png"
+                                height="64"></a>
+
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img
+                                class="skill-img"
+                                src="https://www.freepnglogos.com/uploads/javascript-png/js-logo-png-5.png"
+                                height="64"></a>
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+                    <h2 class="skill-card-title">Back-End Development</h2>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                        <a href="https://www.php.net/manual/fr/intro-whatis.php" target="_blank"><img class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/800px-PHP-logo.svg.png"
+                                height="64"></a>
+
+                        <a href="https://flask.palletsprojects.com/en/2.2.x/" target="_blank"><img class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/1200px-Flask_logo.svg.png"
+                                height="64"></a>
+
+                        <a href="https://laravel.com/" target="_blank"><img class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png"
+                                height="64"></a>
+
+                        <a href="https://sql.sh/" target="_blank"><img class="skill-img"
+                                src="https://3wa.fr/wp-content/uploads/2020/04/sql-logo.png" height="64"></a>
+
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img
+                                class="skill-img"
+                                src="https://www.freepnglogos.com/uploads/javascript-png/js-logo-png-5.png"
+                                height="64"></a>
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+                    <h2 class="skill-card-title">Framework</h2>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                        <a href="https://www.pygame.org/news" target="_blank"><img class="skill-img"
+                                src="https://www.pygame.org/docs/_images/pygame_lofi.png" height="64"></a>
+
+                        <a href="https://www.sfml-dev.org/index-fr.php" target="_blank"><img class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/SFML2.svg/1200px-SFML2.svg.png"
+                                height="64"></a>
+
+                        <a href="https://www.boost.org/doc/libs/1_81_0/more/getting_started/" target="_blank"><img
+                                class="skill-img" src="http://veriakademi.com/images/boost-cpp-programlama-dersleri.png"
+                                height="64"></a>
+
+                        <a href="https://docs.python.org/fr/3/library/tkinter.html" target="_blank"><img
+                                class="skill-img" src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png"
+                                height="64"></a>
+
+                        <a href="https://he-arc.github.io/livre-python/pillow/index.html" target="_blank"><img
+                                class="skill-img" src="https://he-arc.github.io/livre-python/_images/pillow.png"
+                                height="64"></a>
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+                    <h2 class="skill-card-title">Computer Graphics</h2>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                        <a href="https://www.pygame.org/news" target="_blank"><img class="skill-img"
+                                src="https://www.pygame.org/docs/_images/pygame_lofi.png" height="64"></a>
+
+                        <a href="https://www.sfml-dev.org/index-fr.php" target="_blank"><img class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/SFML2.svg/1200px-SFML2.svg.png"
+                                height="64"></a>
+
+                        <a href="https://docs.python.org/fr/3/library/tkinter.html" target="_blank"><img
+                                class="skill-img" src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png"
+                                height="64"></a>
+
+                        <a href="https://he-arc.github.io/livre-python/pillow/index.html" target="_blank"><img
+                                class="skill-img" src="https://he-arc.github.io/livre-python/_images/pillow.png"
+                                height="64"></a>
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+                    <h2 class="skill-card-title">Database</h2>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                    </div>
+
+                    <div class="skills-img">
+
+                        <a href="https://sql.sh/" target="_blank"><img class="skill-img"
+                                src="https://3wa.fr/wp-content/uploads/2020/04/sql-logo.png" height="64"></a>
+
+                        <a href="https://www.postgresql.org/" target="_blank"><img class="skill-img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png"
+                                height="64"></a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <div class="section-end about-end top-margin-75"></div>
+        <section id="contact-section">
+            <div class="section-end project-start"></div>
+            <h1 class="top-margin-100 centered title">Contact</h1>
+
+            <div class="margin-top-100 contact div-centered">
+                <a target="_blank" class="none" href="https://www.linkedin.com/in/nicolas-facon/"><button
+                        target="_blank" class="button">LinkedIn</button></a>
+                <a target="_blank" class="none" href="mailto:faconicolas@gmail.com"><button target="_blank"
+                        class="button">E-mail</button></a>
+                <a target="_blank" class="none" href="https://www.github.com/FACON-Nicolas"><button target="_blank"
+                        class="button">github</button></a>
+            </div>
+            <div class="section-end project-start top-margin-75"></div>
+        </section>
+        <div class="section-end about-end"></div>
+        <section id="cv-section">
+            <h1 class="centered title top-margin-100">CV</h1>
+            <div class="cv-fr-es">
+                <img class="cv" src="static/assets/images/CV_FR.png">
+                <div class="div-centered min-size block-margin-10">
+                    <a class="none" href="static/assets/pdf/CV_FR.pdf" download="CV_FACON_Nicolas_FR.pdf"><button
+                            class="download">download</button></a>
+                </div>
+            </div>
+        </section>
+        </div>
+
+    </main>
+</body>
+
 </html>
